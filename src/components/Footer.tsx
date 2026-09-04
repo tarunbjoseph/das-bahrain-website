@@ -12,6 +12,7 @@ import {
 import { Language } from '../types';
 import { translations } from '../utils/translations';
 import { COMPANY_INFO } from '../data/mockData';
+import logoImg from '../assets/das-logo.png';
 
 interface FooterProps {
   language: Language;
@@ -27,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
   };
 
   return (
-    <footer className="bg-das-950 border-t border-white/10 text-slate-400 text-xs">
+    <footer className="bg-slate-900 dark:bg-das-950 border-t border-slate-200 dark:border-white/10 text-slate-400 text-xs">
       
       {/* Upper Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -36,9 +37,9 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
           {/* Col 1 & 2: Brand & Profile */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-black p-0.5 border-2 border-emerald-500/50 shadow-lg flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full overflow-hidden bg-black p-0.5 border-2 border-emerald-500/50 shadow-lg flex items-center justify-center shrink-0">
                 <img 
-                  src="/das-logo.png" 
+                  src={logoImg} 
                   alt="DAS Bahrain Logo" 
                   className="w-full h-full object-contain"
                 />

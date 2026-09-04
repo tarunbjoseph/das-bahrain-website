@@ -9,12 +9,22 @@ import { B2BWholesaleSection } from './components/B2BWholesaleSection';
 import { AboutContact } from './components/AboutContact';
 import { AIAssistant } from './components/AIAssistant';
 import { Footer } from './components/Footer';
-import { Product, ProductCategory, PackagingType, CartItem, Language } from './types';
+import { Product, ProductCategory, PackagingType, CartItem, Language, Theme } from './types';
 import { PRODUCTS } from './data/mockData';
 
 export const App: React.FC = () => {
   // Language State
   const [language, setLanguage] = useState<Language>('en');
+
+  // Theme State (Default dark, toggles to light)
+  const [theme, setTheme] = useState<Theme>(() => {
+    try {
+      const saved = localStorage.getItem('das_theme') as Theme;
+      return saved === 'light' ? 'light' : 'dark';
+    } catch {
+      return 'dark';
+    }
+  });
 
   // Search & Category Filters
   const [searchQuery, setSearchQuery] = useState('');
@@ -43,6 +53,23 @@ export const App: React.FC = () => {
     }
   }, [cartItems]);
 
+  // Sync Theme with root HTML element
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'light') {
+      root.classList.add('light');
+      root.classList.remove('dark');
+    } else {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    }
+    try {
+      localStorage.setItem('das_theme', theme);
+    } catch (e) {
+      console.error('Failed to save theme', e);
+    }
+  }, [theme]);
+
   // Set RTL / LTR on body
   useEffect(() => {
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
@@ -51,6 +78,10 @@ export const App: React.FC = () => {
 
   const toggleLanguage = () => {
     setLanguage((prev) => (prev === 'en' ? 'ar' : 'en'));
+  };
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   // Cart Actions
@@ -114,12 +145,14 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-[#070a0e] text-slate-100 flex flex-col font-sans ${language === 'ar' ? 'font-arabic' : ''}`}>
+    <div className={`min-h-screen bg-slate-50 dark:bg-[#070a0e] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-300 ${language === 'ar' ? 'font-arabic' : ''}`}>
       
       {/* Sticky Top Navigation */}
       <Navbar
         language={language}
         onToggleLanguage={toggleLanguage}
+        theme={theme}
+        onToggleTheme={toggleTheme}
         cartCount={totalCartCount}
         cartTotal={totalCartAmount}
         onOpenCart={() => setIsCartOpen(true)}

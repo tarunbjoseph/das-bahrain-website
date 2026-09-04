@@ -48,17 +48,17 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.15] mb-6">
-              <span className="block text-slate-300 font-extrabold text-2xl sm:text-3xl mb-1">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] mb-6">
+              <span className="block text-slate-700 dark:text-slate-300 font-extrabold text-2xl sm:text-3xl mb-1">
                 {t.heroTitlePrefix}
               </span>
-              <span className="bg-gradient-to-r from-white via-slate-100 to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-600 dark:from-white dark:via-slate-100 dark:to-emerald-400 bg-clip-text text-transparent">
                 {t.heroTitleHighlight}
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8">
               {t.heroSubTitle}
             </p>
 
@@ -74,15 +74,15 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onExploreB2B}
-                className="flex items-center justify-center gap-2.5 bg-das-800/80 hover:bg-das-700/80 border border-emerald-500/30 hover:border-emerald-400/60 text-white font-bold px-6 py-3.5 rounded-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center justify-center gap-2.5 bg-white dark:bg-das-800/80 hover:bg-slate-100 dark:hover:bg-das-700/80 border border-slate-300 dark:border-emerald-500/30 hover:border-emerald-400/60 text-slate-900 dark:text-white font-bold px-6 py-3.5 rounded-xl shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
-                <Store className="w-4 h-4 text-emerald-400" />
+                <Store className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                 <span>{t.heroCtaB2b}</span>
               </button>
             </div>
 
             {/* Trust Highlights Checkmarks */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-white/10 text-xs text-slate-300">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>{language === 'ar' ? 'توصيل لجميع مناطق البحرين' : 'Island-wide Bahrain Delivery'}</span>
@@ -188,34 +188,34 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Bottom Metrics Banner */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl glass-panel border border-white/10">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl glass-panel border border-slate-200/80 dark:border-white/10">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
               <Truck className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xl font-black text-white">{t.stat1Val}</div>
-              <div className="text-xs text-slate-400">{t.stat1Label}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white">{t.stat1Val}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">{t.stat1Label}</div>
             </div>
           </div>
 
-          <div className="flex items-center gap-4 md:border-x md:border-white/10 md:px-6">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+          <div className="flex items-center gap-4 md:border-x border-slate-200 dark:border-white/10 md:px-6">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
               <Package className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xl font-black text-white">{t.stat2Val}</div>
-              <div className="text-xs text-slate-400">{t.stat2Label}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white">{t.stat2Val}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">{t.stat2Label}</div>
             </div>
           </div>
 
           <div className="flex items-center gap-4 md:pl-2">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
               <Store className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xl font-black text-white">{t.stat3Val}</div>
-              <div className="text-xs text-slate-400">{t.stat3Label}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white">{t.stat3Val}</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400">{t.stat3Label}</div>
             </div>
           </div>
         </div>

@@ -17,6 +17,7 @@ import {
 import { Language } from '../types';
 import { translations } from '../utils/translations';
 import { COMPANY_INFO } from '../data/mockData';
+import logoImg from '../assets/das-logo.png';
 
 interface AboutContactProps {
   language: Language;
@@ -94,9 +95,9 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
 
           {/* Right Visual / Emblem Card */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-gradient-to-b from-das-800 to-das-900 border border-white/10 text-center">
-            <div className="relative w-40 h-40 rounded-full bg-black p-2 border-4 border-emerald-500/40 shadow-2xl shadow-emerald-950/60 mb-6 flex items-center justify-center">
+            <div className="relative w-40 h-40 rounded-full bg-black p-2 border-4 border-emerald-500/40 shadow-2xl shadow-emerald-950/60 mb-6 flex items-center justify-center shrink-0">
               <img 
-                src="/das-logo.png" 
+                src={logoImg} 
                 alt="DAS Bahrain Logo" 
                 className="w-full h-full object-contain"
               />

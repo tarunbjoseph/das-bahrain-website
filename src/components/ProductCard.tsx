@@ -96,29 +96,29 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
         <div>
           {/* Brand & Category */}
-          <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
-            <span className="font-semibold text-emerald-400 uppercase tracking-wider text-[11px]">
+          <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider text-[11px]">
               {isArabic ? product.brandAr : product.brand}
             </span>
-            <div className="flex items-center gap-1 text-amber-400 font-mono text-[11px]">
+            <div className="flex items-center gap-1 text-amber-500 dark:text-amber-400 font-mono text-[11px]">
               <Star className="w-3.5 h-3.5 fill-amber-400" />
               <span>{product.rating}</span>
             </div>
           </div>
 
           {/* Product Name */}
-          <h3 className="text-base font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2 min-h-[3rem]">
+          <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors line-clamp-2 min-h-[3rem]">
             {isArabic ? product.nameAr : product.name}
           </h3>
 
           {/* Packaging Selector Toggle */}
-          <div className="mt-3 p-1 rounded-xl bg-das-900 border border-white/10 flex items-center gap-1 text-xs">
+          <div className="mt-3 p-1 rounded-xl bg-slate-100 dark:bg-das-900 border border-slate-200 dark:border-white/10 flex items-center gap-1 text-xs">
             <button
               onClick={() => setPackagingType('single')}
               className={`flex-1 py-1.5 px-2 rounded-lg font-semibold transition-all ${
                 packagingType === 'single'
                   ? 'bg-emerald-500 text-black shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               {t.singleUnit}
@@ -128,49 +128,49 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               className={`flex-1 py-1.5 px-2 rounded-lg font-semibold transition-all flex items-center justify-center gap-1 ${
                 packagingType === 'carton'
                   ? 'bg-emerald-500 text-black shadow-sm'
-                  : 'text-slate-400 hover:text-white'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <span>{t.cartonPack}</span>
-              <span className="text-[9px] bg-black/30 px-1 py-0.2 rounded font-mono">
+              <span className="text-[9px] bg-black/20 dark:bg-black/30 text-slate-800 dark:text-white px-1 py-0.2 rounded font-mono">
                 ×{product.cartonUnits}
               </span>
             </button>
           </div>
 
-          <div className="mt-2 text-[11px] text-slate-400 font-medium">
-            <span className="text-slate-500">{isArabic ? 'العبوة: ' : 'Package: '}</span>
-            <strong className="text-slate-300">{currentVolume}</strong>
+          <div className="mt-2 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
+            <span className="text-slate-400 dark:text-slate-500">{isArabic ? 'العبوة: ' : 'Package: '}</span>
+            <strong className="text-slate-700 dark:text-slate-300">{currentVolume}</strong>
           </div>
         </div>
 
         {/* Pricing & Cart Action Block */}
-        <div className="mt-4 pt-3 border-t border-white/10">
+        <div className="mt-4 pt-3 border-t border-slate-200 dark:border-white/10">
           <div className="flex items-baseline justify-between mb-3">
             <div>
-              <span className="text-2xl font-black text-white font-mono">
+              <span className="text-2xl font-black text-slate-900 dark:text-white font-mono">
                 {currentPrice.toFixed(3)}
               </span>
-              <span className="text-xs font-extrabold text-emerald-400 ml-1.5">
+              <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 ml-1.5">
                 {t.fils}
               </span>
             </div>
 
             {/* Quantity Stepper */}
-            <div className="flex items-center rounded-lg bg-das-900 border border-white/15 px-1.5 py-0.5">
+            <div className="flex items-center rounded-lg bg-slate-100 dark:bg-das-900 border border-slate-200 dark:border-white/15 px-1.5 py-0.5">
               <button
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="p-1 text-slate-400 hover:text-white transition-colors"
+                className="p-1 text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
                 aria-label="Decrease quantity"
               >
                 <Minus className="w-3.5 h-3.5" />
               </button>
-              <span className="px-2 text-xs font-mono font-bold text-white min-w-[1.5rem] text-center">
+              <span className="px-2 text-xs font-mono font-bold text-slate-900 dark:text-white min-w-[1.5rem] text-center">
                 {quantity}
               </span>
               <button
                 onClick={() => setQuantity(quantity + 1)}
-                className="p-1 text-slate-400 hover:text-white transition-colors"
+                className="p-1 text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white transition-colors"
                 aria-label="Increase quantity"
               >
                 <Plus className="w-3.5 h-3.5" />
@@ -206,7 +206,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               href={getWhatsAppProductLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-1 flex items-center justify-center rounded-xl bg-das-900 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:border-emerald-400 transition-colors"
+              className="col-span-1 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-das-900 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/40 hover:border-emerald-500 transition-colors"
               title={t.whatsappQuickOrder}
             >
               <MessageCircle className="w-4 h-4" />

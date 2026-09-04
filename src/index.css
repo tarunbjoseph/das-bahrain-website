@@ -6,11 +6,25 @@
   color-scheme: dark;
 }
 
+.light {
+  color-scheme: light;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #070a0e;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body, body {
+  background-color: #070a0e;
+  color: #f1f5f9;
+}
+
+.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
 }
 
 [dir="rtl"] {
@@ -25,9 +39,15 @@ body {
 ::-webkit-scrollbar-track {
   background: #0d131a;
 }
+.light ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
 ::-webkit-scrollbar-thumb {
   background: #233042;
   border-radius: 4px;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #22c55e;
@@ -41,11 +61,25 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
 .glass-dropdown {
   background: rgba(13, 19, 26, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .glass-dropdown {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* Glow effects */

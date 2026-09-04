@@ -1,4 +1,5 @@
 export type Language = 'en' | 'ar';
+export type Theme = 'dark' | 'light';
 
 export type ProductCategory = 
   | 'all'
