@@ -83,7 +83,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
       />
 
-      <div className={`fixed inset-y-0 ${isArabic ? 'left-0' : 'right-0'} max-w-full flex pl-10`}>
+      <div className={`fixed inset-y-0 ${isArabic ? 'left-0' : 'right-0'} max-w-full flex ${isArabic ? 'sm:pr-10' : 'sm:pl-10'}`}>
         <div className="w-screen max-w-md bg-white dark:bg-das-900 border-l rtl:border-r rtl:border-l-0 border-slate-200 dark:border-white/10 text-slate-900 dark:text-white shadow-2xl flex flex-col justify-between transition-colors duration-300">
           
           {/* Header */}
@@ -130,7 +130,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           )}
 
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-4">
+          <div className="flex-1 overflow-y-auto p-5 space-y-4 scroll-touch">
             {items.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6">
                 <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-das-800 flex items-center justify-center text-slate-400 dark:text-slate-500 mb-4">

@@ -74,7 +74,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <X className="w-5 h-5" />
         </button>
 
-        <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
+        <div className="overflow-y-auto p-6 sm:p-8 space-y-6 scroll-touch">
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
             
             {/* Image Column */}

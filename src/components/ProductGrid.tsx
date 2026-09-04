@@ -278,7 +278,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
       </div>
 
       {/* Category Pills Bar */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none mb-8">
+      <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none mb-8 scroll-touch">
         {categories.map((cat) => {
           const isActive = selectedCategory === cat.id;
           const Icon = cat.icon;

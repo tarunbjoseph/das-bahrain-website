@@ -101,7 +101,7 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 rtl:right-auto rtl:left-4 sm:rtl:left-6 z-40 safe-bottom">
       
       {/* Floating Toggle Button */}
       {!isOpen && (
