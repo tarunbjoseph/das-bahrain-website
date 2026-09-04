@@ -42,19 +42,23 @@ export const Hero: React.FC<HeroProps> = ({
   const isRtl = language === 'ar';
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
-  // Background rotating slideshow images (from official distributor media)
+  // Background rotating slideshow images (4 authentic distributor template images)
   const heroBackdrops = [
     {
+      url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-3-CAIUPCbG.jpg',
+      alt: 'Dar Al Baba Salam daily neighborhood van sales route across Bahrain'
+    },
+    {
       url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-1-HGdNez6Y.jpg',
-      alt: 'Alsi Cola Bahrain FMCG distribution and warehouse'
+      alt: 'Central Logistics Hub in Hidd Bahrain'
     },
     {
       url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-2-1DU4nM6X.jpg',
-      alt: 'Alsi Cola Bahrain cold drinks and retail cans'
+      alt: 'Alsi Cola Bahrain retail display stands and branded drink coolers'
     },
     {
-      url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-3-CAIUPCbG.jpg',
-      alt: 'Dar Al Baba Salam daily van sales routes across Bahrain'
+      url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80',
+      alt: 'High-capacity wholesale warehouse pallets and containers'
     }
   ];
 
@@ -115,10 +119,10 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="hero" className="relative min-h-[85vh] overflow-hidden flex flex-col justify-center py-12 lg:py-16 transition-colors duration-300">
+    <section id="hero" className="relative isolate min-h-[85vh] overflow-hidden flex flex-col justify-center py-12 lg:py-16 transition-colors duration-300">
       
       {/* Dynamic Background Backdrop Slideshow with Ken Burns effect */}
-      <div className="absolute inset-0 w-full h-full -z-20 overflow-hidden bg-slate-900">
+      <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-slate-900">
         {heroBackdrops.map((bg, idx) => (
           <div
             key={bg.url}
@@ -129,7 +133,7 @@ export const Hero: React.FC<HeroProps> = ({
             <img
               src={bg.url}
               alt={bg.alt}
-              className={`w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.06] ${
+              className={`w-full h-full object-cover object-center ${
                 idx === bgIndex ? 'animate-ken-burns' : ''
               }`}
             />
@@ -138,17 +142,17 @@ export const Hero: React.FC<HeroProps> = ({
       </div>
 
       {/* Atmospheric Transparent Glass Overlay - keeps authentic background visible while text stays sharp */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-white/55 to-slate-50/75 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90 backdrop-blur-[1px]" />
+      <div className="absolute inset-0 z-10 bg-white/45 md:bg-white/35 dark:bg-das-950/75 backdrop-blur-[0.5px]" />
 
       {/* Subtle Botanical Leaf Glows */}
-      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-leaf-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-leaf-500/10 blur-[130px] rounded-full pointer-events-none z-10" />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
-          {/* Left Column: Headline, Trust Pill & Action Buttons */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right">
+          {/* Left Column: Headline, Trust Pill & Action Buttons inside Translucent Card */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right p-6 sm:p-8 lg:p-10 rounded-3xl bg-white/70 dark:bg-das-900/70 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-elevated">
             
             {/* Natural Leaf Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-50 dark:bg-leaf-950/80 border border-leaf-300 dark:border-leaf-700/60 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">

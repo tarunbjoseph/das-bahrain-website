@@ -113,15 +113,15 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   });
 
   return (
-    <section id="products" className="relative py-12 md:py-16 overflow-hidden scroll-mt-20">
+    <section id="products" className="relative isolate py-12 md:py-16 overflow-hidden scroll-mt-20">
       {/* Transparent Ambient Retail & Lifestyle Backdrop */}
-      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         <img
           src="https://alsicolabh.tfwgsite.com/__l5e/assets-v1/ea8d157c-4ce3-4dc1-8850-160122a8abe8/about-lifestyle.jpg"
           alt="DAS Bahrain Retail Store Ambiance"
-          className="w-full h-full object-cover opacity-20 dark:opacity-10 filter blur-[2px] scale-105"
+          className="w-full h-full object-cover opacity-35 dark:opacity-20 filter blur-[1px] scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 via-slate-50/65 to-slate-50/85 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/70 via-slate-50/50 to-slate-50/75 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
