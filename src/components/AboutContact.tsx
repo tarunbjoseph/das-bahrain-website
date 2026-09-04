@@ -31,11 +31,11 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
     <section id="about" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
       {/* Corporate Profile Card */}
-      <div className="rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 p-8 sm:p-12 relative overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none transition-colors duration-300">
+      <div className="rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 p-8 sm:p-12 relative overflow-hidden shadow-soft transition-colors duration-300">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-100 dark:bg-leaf-950/70 border border-leaf-300/60 dark:border-leaf-800 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>{isArabic ? 'الملف التعريفي للشركة' : 'Corporate Profile'}</span>
             </div>
@@ -55,7 +55,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
             {/* Vision & Mission Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-das-900 border border-slate-200 dark:border-white/5">
-                <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-xs uppercase mb-1.5">
+                <div className="flex items-center gap-2 text-leaf-700 dark:text-leaf-400 font-bold text-xs uppercase mb-1.5">
                   <Target className="w-4 h-4" />
                   <span>{isArabic ? 'رؤيتنا' : 'Our Vision'}</span>
                 </div>
@@ -67,7 +67,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-50 dark:bg-das-900 border border-slate-200 dark:border-white/5">
-                <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold text-xs uppercase mb-1.5">
+                <div className="flex items-center gap-2 text-leaf-700 dark:text-leaf-400 font-bold text-xs uppercase mb-1.5">
                   <Award className="w-4 h-4" />
                   <span>{isArabic ? 'رسالتنا' : 'Our Mission'}</span>
                 </div>
@@ -80,8 +80,8 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
             </div>
 
             {/* Core Values */}
-            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-500/30 dark:border-emerald-500/20 text-xs text-slate-700 dark:text-slate-300">
-              <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-1">
+            <div className="p-4 rounded-2xl bg-leaf-50 dark:bg-leaf-950/30 border border-leaf-300/60 dark:border-leaf-800 text-xs text-slate-700 dark:text-slate-300">
+              <div className="flex items-center gap-2 text-leaf-700 dark:text-leaf-400 font-bold mb-1">
                 <HeartHandshake className="w-4 h-4" />
                 <span>{isArabic ? 'قيمنا الجوهرية' : 'Core Values & Integrity'}</span>
               </div>
@@ -95,7 +95,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
 
           {/* Right Visual / Emblem Card */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-gradient-to-b from-slate-100 to-slate-200/80 dark:from-das-800 dark:to-das-900 border border-slate-200 dark:border-white/10 text-center">
-            <div className="relative w-40 h-40 rounded-full bg-white dark:bg-black p-2 border-4 border-emerald-500/40 shadow-xl mb-6 flex items-center justify-center shrink-0">
+            <div className="relative w-40 h-40 rounded-full bg-white dark:bg-black p-2 border-4 border-leaf-500/40 shadow-xl mb-6 flex items-center justify-center shrink-0">
               <img 
                 src={logoImg} 
                 alt="DAS Bahrain Logo" 
@@ -106,7 +106,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
             <h3 className="text-2xl font-black text-slate-900 dark:text-white">
               DAS BAHRAIN
             </h3>
-            <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 font-mono tracking-wider mt-1">
+            <span className="text-xs font-bold text-leaf-700 dark:text-leaf-400 font-mono tracking-wider mt-1">
               DAR AL BABA SALAM W.L.L.
             </span>
             <span className="text-xs text-slate-600 dark:text-slate-400 mt-2">
@@ -122,7 +122,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
               </div>
               <div className="p-2.5 rounded-xl bg-white dark:bg-das-850 border border-slate-200 dark:border-white/5">
                 <span className="text-slate-500 dark:text-slate-400 block text-[10px]">{isArabic ? 'شريك المشروبات' : 'Beverage Partner'}</span>
-                <strong className="text-emerald-600 dark:text-emerald-400 font-bold">Alsi Cola</strong>
+                <strong className="text-leaf-600 dark:text-leaf-400 font-bold">Alsi Cola</strong>
               </div>
             </div>
           </div>
@@ -131,9 +131,9 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
       </div>
 
       {/* Contact & Distribution Hub Card */}
-      <div id="contact" className="rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 p-8 sm:p-12 relative overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-none transition-colors duration-300">
+      <div id="contact" className="rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 p-8 sm:p-12 relative overflow-hidden shadow-soft transition-colors duration-300">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-500/30 text-emerald-800 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-leaf-100 dark:bg-leaf-950/70 border border-leaf-300/60 dark:border-leaf-800 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-3">
             <MapPin className="w-3.5 h-3.5" />
             <span>{isArabic ? 'مركز التواصل والتوزيع' : 'Contact & Distribution Hub'}</span>
           </div>
@@ -153,7 +153,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
           {/* Address */}
           <div className="p-6 rounded-2xl bg-slate-50 dark:bg-das-850 border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-leaf-500/15 text-leaf-700 dark:text-leaf-400 flex items-center justify-center mb-4">
                 <MapPin className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -163,7 +163,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
                 {isArabic ? COMPANY_INFO.hqAddressAr : COMPANY_INFO.hqAddress}
               </p>
             </div>
-            <span className="text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold mt-4 block">
+            <span className="text-[11px] text-leaf-600 dark:text-leaf-400 font-semibold mt-4 block">
               Kingdom of Bahrain
             </span>
           </div>
@@ -171,7 +171,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
           {/* Primary Phone & WhatsApp */}
           <div className="p-6 rounded-2xl bg-slate-50 dark:bg-das-850 border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-leaf-500/15 text-leaf-700 dark:text-leaf-400 flex items-center justify-center mb-4">
                 <Phone className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -185,7 +185,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
               href={`https://wa.me/${COMPANY_INFO.primaryWhatsApp}`} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold mt-4"
+              className="inline-flex items-center gap-1.5 text-xs text-leaf-700 dark:text-leaf-400 hover:text-leaf-800 dark:hover:text-leaf-300 font-bold mt-4"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>{isArabic ? 'محادثة واتساب' : 'Chat on WhatsApp'}</span>
@@ -193,9 +193,9 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
           </div>
 
           {/* Central Sales Division */}
-          <div className="p-6 rounded-2xl bg-emerald-50/50 dark:bg-das-850 border border-emerald-500/30 hover:border-emerald-500/60 transition-all flex flex-col justify-between shadow-lg">
+          <div className="p-6 rounded-2xl bg-leaf-50/60 dark:bg-das-850 border border-leaf-300/70 dark:border-leaf-800 hover:border-leaf-500 transition-all flex flex-col justify-between shadow-soft">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-emerald-500 text-black flex items-center justify-center mb-4 font-bold">
+              <div className="w-10 h-10 rounded-xl bg-leaf-600 text-white flex items-center justify-center mb-4 font-bold shadow-sm">
                 <Store className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -209,7 +209,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
               href={`https://wa.me/${COMPANY_INFO.centralSalesWhatsApp}`} 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-bold mt-4"
+              className="inline-flex items-center gap-1.5 text-xs text-leaf-700 dark:text-leaf-400 hover:text-leaf-800 dark:hover:text-leaf-300 font-bold mt-4"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>{isArabic ? 'واتساب المبيعات المركزية' : 'WhatsApp Central Sales'}</span>
@@ -219,7 +219,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
           {/* Official Email */}
           <div className="p-6 rounded-2xl bg-slate-50 dark:bg-das-850 border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+              <div className="w-10 h-10 rounded-xl bg-leaf-500/15 text-leaf-700 dark:text-leaf-400 flex items-center justify-center mb-4">
                 <Mail className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -231,7 +231,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
             </div>
             <a 
               href={`mailto:${COMPANY_INFO.email}`} 
-              className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-bold mt-4"
+              className="inline-flex items-center gap-1.5 text-xs text-leaf-700 dark:text-leaf-400 hover:text-leaf-800 dark:hover:text-leaf-300 font-bold mt-4"
             >
               <span>{isArabic ? 'إرسال بريد إلكتروني' : 'Send Email'}</span>
             </a>

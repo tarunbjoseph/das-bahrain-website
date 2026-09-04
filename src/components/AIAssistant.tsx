@@ -107,16 +107,16 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="relative flex items-center gap-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-black font-extrabold px-4 py-3 rounded-full shadow-2xl shadow-emerald-500/30 hover:scale-105 transition-all group"
+          className="relative flex items-center gap-2.5 bg-leaf-600 hover:bg-leaf-500 text-white font-bold px-4 py-3 rounded-full shadow-lg shadow-leaf-600/30 hover:scale-105 transition-all group"
           aria-label="Open AI Assistant"
         >
           <div className="relative">
-            <Bot className="w-5 h-5 text-black" />
-            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-black rounded-full flex items-center justify-center">
-              <span className="w-1.5 h-1.5 bg-emerald-300 rounded-full animate-ping" />
+            <Bot className="w-5 h-5 text-white" />
+            <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-white rounded-full flex items-center justify-center">
+              <span className="w-1.5 h-1.5 bg-leaf-400 rounded-full animate-ping" />
             </span>
           </div>
-          <span className="text-xs font-black hidden sm:inline">
+          <span className="text-xs font-bold hidden sm:inline">
             {isArabic ? 'مساعد داس الذكي' : 'DAS AI Assistant'}
           </span>
         </button>
@@ -127,17 +127,17 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
         <div className="w-[92vw] sm:w-96 h-[500px] max-h-[85vh] bg-white dark:bg-das-900 border border-slate-200 dark:border-white/15 rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-scaleUp transition-colors duration-300">
           
           {/* Chat Header */}
-          <div className="p-4 bg-emerald-800 dark:bg-gradient-to-r dark:from-emerald-950 dark:via-das-900 dark:to-das-950 border-b border-emerald-900 dark:border-white/10 flex items-center justify-between text-white">
+          <div className="p-4 bg-leaf-700 dark:bg-gradient-to-r dark:from-leaf-950 dark:via-das-900 dark:to-das-950 border-b border-leaf-800 dark:border-white/10 flex items-center justify-between text-white">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full bg-emerald-500 text-black flex items-center justify-center font-bold">
+              <div className="w-9 h-9 rounded-full bg-leaf-600 text-white flex items-center justify-center font-bold shadow-sm">
                 <Bot className="w-5 h-5" />
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white flex items-center gap-1.5">
                   <span>{t.aiAssistantTitle}</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-leaf-300 animate-pulse" />
                 </h4>
-                <span className="text-[10px] text-emerald-200 dark:text-emerald-400 font-medium block">
+                <span className="text-[10px] text-leaf-100 dark:text-leaf-300 font-medium block">
                   {t.aiAssistantOnline}
                 </span>
               </div>
@@ -145,7 +145,7 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
 
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1 rounded-full text-emerald-100 hover:text-white dark:text-slate-400 dark:hover:text-white transition-colors"
+              className="p-1 rounded-full text-leaf-100 hover:text-white dark:text-slate-400 dark:hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -159,14 +159,14 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
                 className={`flex gap-2 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {m.sender === 'ai' && (
-                  <div className="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 mt-0.5 font-bold">
+                  <div className="w-6 h-6 rounded-full bg-leaf-500/15 text-leaf-700 dark:text-leaf-400 flex items-center justify-center shrink-0 mt-0.5 font-bold">
                     <Bot className="w-3.5 h-3.5" />
                   </div>
                 )}
                 <div
                   className={`p-3 rounded-2xl max-w-[82%] leading-relaxed ${
                     m.sender === 'user'
-                      ? 'bg-emerald-500 text-black font-semibold rounded-tr-none shadow-sm'
+                      ? 'bg-leaf-600 text-white font-medium rounded-tr-none shadow-sm'
                       : 'bg-slate-100 dark:bg-das-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/10 rounded-tl-none'
                   }`}
                 >
@@ -185,7 +185,7 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
                   <button
                     key={qq.key}
                     onClick={() => handleSendMessage(qq.q)}
-                    className="text-left rtl:text-right p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-das-850 dark:hover:bg-das-800 text-[11px] text-slate-700 dark:text-slate-300 hover:text-emerald-700 dark:hover:text-emerald-300 border border-slate-200 dark:border-white/5 hover:border-emerald-500/30 transition-all flex items-center justify-between"
+                    className="text-left rtl:text-right p-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 dark:bg-das-850 dark:hover:bg-das-800 text-[11px] text-slate-700 dark:text-slate-300 hover:text-leaf-700 dark:hover:text-leaf-300 border border-slate-200 dark:border-white/5 hover:border-leaf-500/30 transition-all flex items-center justify-between"
                   >
                     <span>{qq.q}</span>
                     <ChevronRight className="w-3 h-3 text-slate-400 dark:text-slate-500 shrink-0" />
@@ -201,7 +201,7 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
               href={`https://wa.me/${COMPANY_INFO.primaryWhatsApp}?text=Hello%20DAS%20Bahrain,%20I%20need%20human%20assistance.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[11px] text-emerald-700 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 font-bold transition-colors"
+              className="flex items-center gap-1.5 text-[11px] text-leaf-700 dark:text-leaf-400 hover:text-leaf-800 dark:hover:text-leaf-300 font-bold transition-colors"
             >
               <MessageCircle className="w-3.5 h-3.5" />
               <span>{t.chatDirectWhatsApp}</span>
@@ -216,12 +216,12 @@ export const AIAssistant: React.FC<AIAssistantProps> = ({ language }) => {
               value={inputVal}
               onChange={(e) => setInputVal(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
-              className="flex-1 bg-slate-100 dark:bg-das-800 border border-slate-200 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2 px-3 text-xs text-slate-900 dark:text-white focus:outline-none placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
+              className="flex-1 bg-slate-100 dark:bg-das-800 border border-slate-200 dark:border-white/15 focus:border-leaf-500 focus:ring-1 focus:ring-leaf-500 rounded-xl py-2 px-3 text-xs text-slate-900 dark:text-white focus:outline-none placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
             />
             <button
               onClick={() => handleSendMessage()}
               disabled={!inputVal.trim()}
-              className="p-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 text-black transition-all shadow-sm"
+              className="p-2 rounded-xl bg-leaf-600 hover:bg-leaf-500 disabled:opacity-40 text-white transition-all shadow-sm"
             >
               <Send className="w-4 h-4" />
             </button>

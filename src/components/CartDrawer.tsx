@@ -111,8 +111,8 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             <div className="bg-slate-50 dark:bg-das-850 px-5 py-3 border-b border-slate-200 dark:border-white/10">
               <div className="flex items-center justify-between text-xs mb-1.5">
                 <div className="flex items-center gap-1.5 font-bold">
-                  <Truck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
-                  <span className={isFreeDelivery ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-600 dark:text-slate-300'}>
+                  <Truck className="w-3.5 h-3.5 text-leaf-600 dark:text-leaf-400" />
+                  <span className={isFreeDelivery ? 'text-leaf-700 dark:text-leaf-400' : 'text-slate-600 dark:text-slate-300'}>
                     {isFreeDelivery ? t.freeDeliveryUnlocked : `${t.freeDeliveryPrompt} ${remainingForFree.toFixed(3)} ${t.fils} ${t.moreForFreeDelivery}`}
                   </span>
                 </div>
@@ -122,7 +122,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
               </div>
               <div className="w-full h-2 bg-slate-200 dark:bg-das-800 rounded-full overflow-hidden">
                 <div 
-                  className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-500 rounded-full"
+                  className="h-full bg-gradient-to-r from-leaf-600 to-leaf-400 transition-all duration-500 rounded-full"
                   style={{ width: `${freeDeliveryProgress}%` }}
                 />
               </div>
@@ -144,7 +144,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </p>
                 <button
                   onClick={onClose}
-                  className="px-6 py-2.5 rounded-xl bg-emerald-500 text-black font-bold text-xs hover:bg-emerald-400 transition-colors shadow-md"
+                  className="px-6 py-2.5 rounded-xl bg-leaf-600 text-white font-bold text-xs hover:bg-leaf-500 transition-colors shadow-md"
                 >
                   {t.startShopping}
                 </button>
@@ -184,7 +184,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         </div>
-                        <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-medium block">
+                        <span className="text-[10px] text-leaf-700 dark:text-leaf-400 font-medium block">
                           {pkgLabel}
                         </span>
                       </div>
@@ -214,7 +214,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           <span className="text-sm font-black text-slate-900 dark:text-white font-mono">
                             {totalItemCost}
                           </span>
-                          <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 ml-1">
+                          <span className="text-[10px] font-bold text-leaf-600 dark:text-leaf-400 ml-1">
                             {t.fils}
                           </span>
                         </div>
@@ -236,22 +236,22 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
                 <div className="flex items-center justify-between text-slate-500 dark:text-slate-400">
                   <span>{t.deliveryFee}</span>
-                  <span className="font-mono text-emerald-600 dark:text-emerald-400 font-bold">
+                  <span className="font-mono text-leaf-600 dark:text-leaf-400 font-bold">
                     {deliveryFee === 0 ? t.freeDelivery : `${deliveryFee.toFixed(3)} ${t.fils}`}
                   </span>
                 </div>
                 <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between text-base font-black text-slate-900 dark:text-white">
                   <span>{t.orderTotal}</span>
-                  <span className="font-mono text-emerald-600 dark:text-emerald-400 text-lg">{total.toFixed(3)} {t.fils}</span>
+                  <span className="font-mono text-leaf-600 dark:text-leaf-400 text-lg font-black">{total.toFixed(3)} {t.fils}</span>
                 </div>
               </div>
 
               {/* Action 1: Instant WhatsApp Order */}
               <button
                 onClick={handleQuickWhatsAppCheckout}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.01]"
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-leaf-600 hover:bg-leaf-500 text-white font-bold text-xs shadow-md shadow-leaf-600/25 transition-all hover:scale-[1.01]"
               >
-                <MessageCircle className="w-4 h-4 fill-black" />
+                <MessageCircle className="w-4 h-4 fill-white" />
                 <span>{t.checkoutViaWhatsApp}</span>
               </button>
 
@@ -263,7 +263,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 }}
                 className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-slate-200 hover:bg-slate-300 dark:bg-das-800 dark:hover:bg-das-700 text-slate-800 dark:text-white font-bold text-xs border border-slate-300 dark:border-white/10 transition-colors"
               >
-                <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <CreditCard className="w-4 h-4 text-leaf-600 dark:text-leaf-400" />
                 <span>{t.checkoutViaOnline}</span>
               </button>
             </div>

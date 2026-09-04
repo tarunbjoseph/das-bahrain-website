@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
           {/* Col 1 & 2: Brand & Profile */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-black p-0.5 border-2 border-emerald-500/50 shadow-lg flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-full overflow-hidden bg-white dark:bg-black p-1 border-2 border-leaf-500/50 shadow-lg flex items-center justify-center shrink-0">
                 <img 
                   src={logoImg} 
                   alt="DAS Bahrain Logo" 
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               </div>
               <div>
                 <span className="text-lg font-black text-white tracking-tight block">
-                  DAS <span className="text-emerald-400">BAHRAIN</span>
+                  DAS <span className="text-leaf-400">BAHRAIN</span>
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium">
                   {COMPANY_INFO.name}
@@ -63,7 +63,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
                 href="https://www.instagram.com/alsi_cola_bahrain" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-das-850 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-400 border border-white/10 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-xl bg-das-850 hover:bg-leaf-500/20 text-slate-300 hover:text-leaf-400 border border-white/10 flex items-center justify-center transition-colors"
                 title="Alsi Cola Bahrain Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -73,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
                 href={`https://wa.me/${COMPANY_INFO.primaryWhatsApp}`} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-xl bg-das-850 hover:bg-emerald-500/20 text-slate-300 hover:text-emerald-400 border border-white/10 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-xl bg-das-850 hover:bg-leaf-500/20 text-slate-300 hover:text-leaf-400 border border-white/10 flex items-center justify-center transition-colors"
                 title="DAS Bahrain WhatsApp"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -81,7 +81,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
             </div>
 
             <div className="pt-2 text-[11px] text-slate-400">
-              <strong className="text-emerald-400">{t.workingHours}</strong>
+              <strong className="text-leaf-400">{t.workingHours}</strong>
             </div>
           </div>
 
@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('products')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {t.shop}
                 </button>
@@ -102,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('b2b')} 
-                  className="hover:text-emerald-400 transition-colors text-emerald-400 font-bold"
+                  className="hover:text-leaf-400 transition-colors text-leaf-400 font-bold"
                 >
                   {t.b2bWholesale}
                 </button>
@@ -110,7 +110,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('about')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {t.aboutUs}
                 </button>
@@ -118,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('contact')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {t.contact}
                 </button>
@@ -135,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('products')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {isArabic ? 'الساي كولا والمشروبات' : 'Alsi Cola Beverages'}
                 </button>
@@ -143,7 +143,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('products')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {isArabic ? 'مشروبات الطاقة (كود ريد)' : 'Energy Drinks (Code Red)'}
                 </button>
@@ -151,7 +151,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('products')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {isArabic ? 'الأغذية الجافة والتموين' : 'Dry Food & Pantry'}
                 </button>
@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('products')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {isArabic ? 'الحلويات والشوكولاتة' : 'Confectionery & Sweets'}
                 </button>
@@ -167,7 +167,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('products')} 
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {isArabic ? 'المنظفات والمستهلكات' : 'Non-Food & Hygiene'}
                 </button>
@@ -182,19 +182,19 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
             </h4>
             <div className="space-y-3">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-leaf-400 shrink-0 mt-0.5" />
                 <span>{isArabic ? COMPANY_INFO.hqAddressAr : COMPANY_INFO.hqAddress}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Phone className="w-4 h-4 text-leaf-400 shrink-0" />
                 <span className="font-mono">{COMPANY_INFO.primaryPhone}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Store className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Store className="w-4 h-4 text-leaf-400 shrink-0" />
                 <span className="font-mono">Central: {COMPANY_INFO.centralSalesDivision}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
+                <Mail className="w-4 h-4 text-leaf-400 shrink-0" />
                 <span className="font-mono break-all">{COMPANY_INFO.email}</span>
               </div>
             </div>
@@ -231,7 +231,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
 
         <button
           onClick={scrollToTop}
-          className="flex items-center gap-1.5 text-slate-400 hover:text-emerald-400 transition-colors font-bold"
+          className="flex items-center gap-1.5 text-slate-400 hover:text-leaf-400 transition-colors font-bold"
         >
           <span>Back to Top</span>
           <ArrowUp className="w-3.5 h-3.5" />

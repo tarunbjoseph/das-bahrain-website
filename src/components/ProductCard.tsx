@@ -55,7 +55,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className="group relative rounded-2xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 dark:hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-950/40">
+    <div className="group relative rounded-2xl bg-white dark:bg-das-850/90 border border-slate-200/90 dark:border-white/10 hover:border-leaf-500/60 dark:hover:border-leaf-500/50 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-soft hover:shadow-leaf">
       
       {/* Top Media Container */}
       <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-gradient-to-b dark:from-das-800 dark:to-das-900 flex items-center justify-center p-3">
@@ -71,12 +71,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Badges Overlay */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           {product.tag && (
-            <span className="px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wide bg-emerald-500 text-black shadow-md">
+            <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-leaf-600 text-white shadow-sm">
               {isArabic ? product.tagAr || product.tag : product.tag}
             </span>
           )}
           {product.featured && (
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-300/60 dark:border-amber-500/30 backdrop-blur-sm">
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-50 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-300/60 dark:border-amber-500/30 backdrop-blur-sm">
               Popular
             </span>
           )}
@@ -85,7 +85,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         {/* Quick View Button on Hover */}
         <button
           onClick={() => onQuickView(product)}
-          className="absolute inset-0 m-auto w-10 h-10 rounded-full bg-black/70 hover:bg-emerald-500 text-white hover:text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 shadow-xl"
+          className="absolute inset-0 m-auto w-10 h-10 rounded-full bg-slate-900/80 hover:bg-leaf-600 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all scale-75 group-hover:scale-100 shadow-xl"
           title={t.quickView}
         >
           <Eye className="w-5 h-5" />
@@ -97,7 +97,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <div>
           {/* Brand & Category */}
           <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
-            <span className="font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider text-[11px]">
+            <span className="font-bold text-leaf-600 dark:text-leaf-400 uppercase tracking-wider text-[11px]">
               {isArabic ? product.brandAr : product.brand}
             </span>
             <div className="flex items-center gap-1 text-amber-500 dark:text-amber-400 font-mono text-[11px]">
@@ -107,7 +107,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           </div>
 
           {/* Product Name */}
-          <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors line-clamp-2 min-h-[3rem]">
+          <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-leaf-600 dark:group-hover:text-leaf-300 transition-colors line-clamp-2 min-h-[3rem]">
             {isArabic ? product.nameAr : product.name}
           </h3>
 
@@ -115,9 +115,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="mt-3 p-1 rounded-xl bg-slate-100 dark:bg-das-900 border border-slate-200 dark:border-white/10 flex items-center gap-1 text-xs">
             <button
               onClick={() => setPackagingType('single')}
-              className={`flex-1 py-1.5 px-2 rounded-lg font-semibold transition-all ${
+              className={`flex-1 py-1.5 px-2 rounded-lg font-bold transition-all ${
                 packagingType === 'single'
-                  ? 'bg-emerald-500 text-black shadow-sm'
+                  ? 'bg-leaf-600 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
@@ -125,14 +125,18 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </button>
             <button
               onClick={() => setPackagingType('carton')}
-              className={`flex-1 py-1.5 px-2 rounded-lg font-semibold transition-all flex items-center justify-center gap-1 ${
+              className={`flex-1 py-1.5 px-2 rounded-lg font-bold transition-all flex items-center justify-center gap-1 ${
                 packagingType === 'carton'
-                  ? 'bg-emerald-500 text-black shadow-sm'
+                  ? 'bg-leaf-600 text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
               <span>{t.cartonPack}</span>
-              <span className="text-[9px] bg-black/20 dark:bg-black/30 text-slate-800 dark:text-white px-1 py-0.2 rounded font-mono">
+              <span className={`text-[9px] px-1 py-0.2 rounded font-mono ${
+                packagingType === 'carton' 
+                  ? 'bg-white/20 text-white' 
+                  : 'bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-300'
+              }`}>
                 ×{product.cartonUnits}
               </span>
             </button>
@@ -151,7 +155,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               <span className="text-2xl font-black text-slate-900 dark:text-white font-mono">
                 {currentPrice.toFixed(3)}
               </span>
-              <span className="text-xs font-extrabold text-emerald-600 dark:text-emerald-400 ml-1.5">
+              <span className="text-xs font-bold text-leaf-600 dark:text-leaf-400 ml-1.5">
                 {t.fils}
               </span>
             </div>
@@ -184,8 +188,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               onClick={handleAdd}
               className={`col-span-4 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl font-bold text-xs transition-all ${
                 isAdded
-                  ? 'bg-emerald-400 text-black'
-                  : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-lg shadow-emerald-500/20'
+                  ? 'bg-leaf-500 text-white'
+                  : 'bg-leaf-600 hover:bg-leaf-500 text-white shadow-md shadow-leaf-600/25 active:scale-95'
               }`}
             >
               {isAdded ? (
@@ -206,7 +210,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               href={getWhatsAppProductLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-1 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-das-900 hover:bg-emerald-50 dark:hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 hover:border-emerald-500 transition-colors"
+              className="col-span-1 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-das-900 hover:bg-leaf-50 dark:hover:bg-leaf-950/40 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-800 hover:border-leaf-500 transition-colors"
               title={t.whatsappQuickOrder}
             >
               <MessageCircle className="w-4 h-4" />

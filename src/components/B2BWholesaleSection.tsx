@@ -107,7 +107,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-500/30 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-100 dark:bg-leaf-950/70 border border-leaf-300/60 dark:border-leaf-800 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Building2 className="w-4 h-4" />
             <span>{t.b2bBadge}</span>
           </div>
@@ -125,13 +125,13 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           
           {/* Pillar 1: Van Sales */}
-          <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-500 dark:hover:border-emerald-400 transition-all shadow-xl shadow-slate-200/50 dark:shadow-none">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-leaf-500/30 relative overflow-hidden group hover:border-leaf-500 dark:hover:border-leaf-400 transition-all shadow-soft dark:shadow-none">
+            <div className="w-14 h-14 rounded-2xl bg-leaf-500/15 text-leaf-700 dark:text-leaf-400 border border-leaf-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Truck className="w-7 h-7" />
             </div>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-emerald-500 text-black">
+              <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-leaf-600 text-white">
                 Core Operation
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">Daily Route</span>
@@ -147,15 +147,15 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
 
             <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-200 border-t border-slate-100 dark:border-white/10 pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
                 <span>{isArabic ? 'كميات مرنة وتوريد يومي حسب الحاجة' : 'Small batch daily restocking'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
                 <span>{isArabic ? 'توفير ستاندات ومواد دعائية مجانية' : 'Branded floor & counter display stands'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
                 <span>{isArabic ? 'فواتير إلكترونية فورية عند التسليم' : 'On-the-spot electronic invoicing'}</span>
               </li>
             </ul>
@@ -244,7 +244,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
             {/* Left Info Column */}
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-leaf-700 dark:text-leaf-400 uppercase tracking-wider mb-3">
                   <Clock className="w-4 h-4" />
                   <span>{isArabic ? 'تواصل مباشر مع الإدارة' : 'Direct Central Dispatch'}</span>
                 </div>
@@ -260,9 +260,9 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                 </p>
 
                 {/* Central Sales Callout Box */}
-                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-das-900 border border-emerald-500/30 mb-6">
+                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-das-900 border border-leaf-500/30 mb-6">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500 text-black flex items-center justify-center font-bold">
+                    <div className="w-10 h-10 rounded-xl bg-leaf-600 text-white flex items-center justify-center font-bold shadow-sm">
                       <PhoneCall className="w-5 h-5" />
                     </div>
                     <div>
@@ -294,8 +294,8 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
             {/* Right Form Column */}
             <div className="lg:col-span-7">
               {submitted ? (
-                <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/40 text-center py-12 animate-fadeIn">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500 text-black flex items-center justify-center mx-auto mb-4 font-bold shadow-lg">
+                <div className="p-8 rounded-2xl bg-leaf-50 dark:bg-leaf-950/40 border border-leaf-500/40 text-center py-12 animate-fadeIn">
+                  <div className="w-16 h-16 rounded-full bg-leaf-600 text-white flex items-center justify-center mx-auto mb-4 font-bold shadow-lg">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
                   <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-2">
@@ -424,7 +424,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                             key={opt.id}
                             className={`flex items-center gap-2.5 p-2.5 rounded-xl border cursor-pointer text-xs transition-all ${
                               checked
-                                ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-950 dark:text-white font-semibold'
+                                ? 'bg-leaf-50 dark:bg-leaf-950/40 border-leaf-500 text-leaf-900 dark:text-leaf-100 font-semibold'
                                 : 'bg-slate-50 dark:bg-das-900 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-400 hover:border-slate-300 dark:hover:border-white/20'
                             }`}
                           >
@@ -432,7 +432,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                               type="checkbox"
                               checked={checked}
                               onChange={() => handleCheckboxToggle(opt.id)}
-                              className="accent-emerald-500 rounded"
+                              className="accent-leaf-600 rounded"
                             />
                             <span>{isArabic ? opt.labelAr : opt.labelEn}</span>
                           </label>
@@ -451,16 +451,16 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                       placeholder={isArabic ? 'أي تفاصيل عن موقع المحل أو التوقيت المناسب للزيارة...' : 'Specific delivery timing, road/block number, or requested display rack...'}
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none transition-colors"
+                      className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-leaf-500 focus:ring-1 focus:ring-leaf-500 rounded-xl py-2 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none transition-colors"
                     />
                   </div>
 
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-black font-extrabold py-3.5 px-6 rounded-xl shadow-xl shadow-emerald-500/20 transition-all hover:scale-[1.01] active:scale-[0.99] text-sm"
+                    className="w-full flex items-center justify-center gap-2.5 bg-leaf-600 hover:bg-leaf-500 text-white font-bold py-3.5 px-6 rounded-xl shadow-md shadow-leaf-600/25 transition-all hover:scale-[1.01] active:scale-[0.99] text-sm"
                   >
-                    <MessageCircle className="w-4 h-4 fill-black" />
+                    <MessageCircle className="w-4 h-4 fill-white" />
                     <span>{t.submitB2bWhatsApp}</span>
                     <ArrowIcon className="w-4 h-4" />
                   </button>

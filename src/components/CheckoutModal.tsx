@@ -127,12 +127,12 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           {orderComplete ? (
             /* Order Success View */
             <div className="text-center py-6 space-y-5 animate-fadeIn">
-              <div className="w-20 h-20 rounded-full bg-emerald-500 text-black flex items-center justify-center mx-auto shadow-xl shadow-emerald-500/30">
+              <div className="w-20 h-20 rounded-full bg-leaf-600 text-white flex items-center justify-center mx-auto shadow-lg shadow-leaf-600/30">
                 <CheckCircle2 className="w-12 h-12" />
               </div>
 
               <div>
-                <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono font-bold text-leaf-800 dark:text-leaf-300 bg-leaf-100 dark:bg-leaf-950/80 border border-leaf-300/60 dark:border-leaf-800 px-3 py-1 rounded-full">
                   {orderId}
                 </span>
                 <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-2">
@@ -145,7 +145,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               {/* BenefitPay Prompt if selected */}
               {form.paymentMethod === 'benefitpay' && (
-                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-das-850 border border-emerald-500/30 max-w-sm mx-auto text-left rtl:text-right">
+                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-das-850 border border-leaf-500/30 max-w-sm mx-auto text-left rtl:text-right">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold text-xs">
                       Benefit
@@ -158,7 +158,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   <div className="bg-white p-3 rounded-xl mx-auto w-36 h-36 flex items-center justify-center shadow-md">
                     <QrCode className="w-28 h-28 text-black" />
                   </div>
-                  <div className="text-center mt-2 text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold">
+                  <div className="text-center mt-2 text-xs font-mono text-leaf-700 dark:text-leaf-400 font-bold">
                     Amount: {total.toFixed(3)} BHD
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500 dark:text-slate-400">{isArabic ? 'المبلغ الكلي:' : 'Total Amount:'}</span>
-                  <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400 text-sm">{total.toFixed(3)} BHD</span>
+                  <span className="font-mono font-bold text-leaf-700 dark:text-leaf-400 text-sm">{total.toFixed(3)} BHD</span>
                 </div>
               </div>
 
@@ -184,9 +184,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <div className="space-y-2 max-w-md mx-auto">
                 <button
                   onClick={handleSendOrderViaWhatsApp}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-sm shadow-xl shadow-emerald-500/20"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl bg-leaf-600 hover:bg-leaf-500 text-white font-bold text-sm shadow-md shadow-leaf-600/25"
                 >
-                  <MessageCircle className="w-4 h-4 fill-black" />
+                  <MessageCircle className="w-4 h-4 fill-white" />
                   <span>{isArabic ? 'إرسال تفاصيل الطلب لمسؤول التوصيل عبر واتساب' : 'Dispatch Order Summary to WhatsApp'}</span>
                 </button>
 
@@ -287,7 +287,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               {/* Payment Methods */}
               <div>
                 <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-                  <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                  <CreditCard className="w-4 h-4 text-leaf-600 dark:text-leaf-400" />
                   <span>{t.paymentOptionTitle}</span>
                 </h3>
 
@@ -295,7 +295,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {/* WhatsApp COD */}
                   <label className={`flex items-center gap-3 p-3 rounded-2xl border cursor-pointer transition-all ${
                     form.paymentMethod === 'whatsapp' 
-                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-slate-900 dark:text-white' 
+                      ? 'bg-leaf-50 dark:bg-leaf-950/40 border-leaf-500 text-slate-900 dark:text-white' 
                       : 'bg-slate-50 dark:bg-das-800 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                   }`}>
                     <input
@@ -303,9 +303,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       name="payment"
                       checked={form.paymentMethod === 'whatsapp'}
                       onChange={() => setForm({ ...form, paymentMethod: 'whatsapp' })}
-                      className="accent-emerald-500"
+                      className="accent-leaf-600"
                     />
-                    <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                    <MessageCircle className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
                     <div className="flex-1">
                       <strong className="block text-slate-900 dark:text-white">{t.payWhatsAppMethod}</strong>
                       <span className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -317,7 +317,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {/* BenefitPay */}
                   <label className={`flex items-center gap-3 p-3 rounded-2xl border cursor-pointer transition-all ${
                     form.paymentMethod === 'benefitpay' 
-                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-slate-900 dark:text-white' 
+                      ? 'bg-leaf-50 dark:bg-leaf-950/40 border-leaf-500 text-slate-900 dark:text-white' 
                       : 'bg-slate-50 dark:bg-das-800 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                   }`}>
                     <input
@@ -325,7 +325,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       name="payment"
                       checked={form.paymentMethod === 'benefitpay'}
                       onChange={() => setForm({ ...form, paymentMethod: 'benefitpay' })}
-                      className="accent-emerald-500"
+                      className="accent-leaf-600"
                     />
                     <QrCode className="w-4 h-4 text-red-500 shrink-0" />
                     <div className="flex-1">
@@ -339,7 +339,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {/* Card */}
                   <label className={`flex items-center gap-3 p-3 rounded-2xl border cursor-pointer transition-all ${
                     form.paymentMethod === 'card' 
-                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-slate-900 dark:text-white' 
+                      ? 'bg-leaf-50 dark:bg-leaf-950/40 border-leaf-500 text-slate-900 dark:text-white' 
                       : 'bg-slate-50 dark:bg-das-800 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                   }`}>
                     <input
@@ -347,7 +347,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       name="payment"
                       checked={form.paymentMethod === 'card'}
                       onChange={() => setForm({ ...form, paymentMethod: 'card' })}
-                      className="accent-emerald-500"
+                      className="accent-leaf-600"
                     />
                     <CreditCard className="w-4 h-4 text-blue-500 dark:text-blue-400 shrink-0" />
                     <div className="flex-1">
@@ -365,13 +365,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <div>
                   <span className="text-slate-500 dark:text-slate-400 block">{isArabic ? 'المبلغ المطلوب سداده:' : 'Total Payable:'}</span>
                   <div className="text-xl font-black text-slate-900 dark:text-white font-mono">
-                    {total.toFixed(3)} <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold">{t.fils}</span>
+                    {total.toFixed(3)} <span className="text-xs text-leaf-600 dark:text-leaf-400 font-bold">{t.fils}</span>
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="flex items-center gap-2 py-3 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs shadow-lg shadow-emerald-500/25 transition-all"
+                  className="flex items-center gap-2 py-3 px-6 rounded-xl bg-leaf-600 hover:bg-leaf-500 text-white font-bold text-xs shadow-md shadow-leaf-600/25 transition-all"
                 >
                   <span>{t.confirmAndPlaceOrder}</span>
                   <ArrowIcon className="w-4 h-4" />

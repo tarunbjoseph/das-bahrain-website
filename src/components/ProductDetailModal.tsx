@@ -85,7 +85,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 className="w-full h-full object-cover"
               />
               {product.tag && (
-                <div className="absolute top-3 left-3 bg-emerald-500 text-black text-[10px] font-black uppercase px-2 py-0.5 rounded-full shadow">
+                <div className="absolute top-3 left-3 bg-leaf-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow">
                   {isArabic ? product.tagAr || product.tag : product.tag}
                 </div>
               )}
@@ -94,7 +94,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {/* Info Column */}
             <div className="sm:col-span-7 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-leaf-700 dark:text-leaf-400 uppercase tracking-wider">
                   {isArabic ? product.brandAr : product.brand}
                 </span>
 
@@ -110,7 +110,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <span>•</span>
                   <span>{product.reviewsCount} {t.ratingReviews}</span>
                   <span>•</span>
-                  <span className="text-emerald-700 dark:text-emerald-400 font-semibold">{t.inStock}</span>
+                  <span className="text-leaf-700 dark:text-leaf-400 font-semibold">{t.inStock}</span>
                 </div>
 
                 <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -128,12 +128,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setPackagingType('single')}
                     className={`p-2.5 rounded-xl border text-xs font-bold flex flex-col items-start transition-all ${
                       packagingType === 'single'
-                        ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-white shadow-sm'
+                        ? 'border-leaf-500 bg-leaf-50 dark:bg-leaf-950/40 text-leaf-950 dark:text-white shadow-sm'
                         : 'border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-das-800/60 text-slate-700 dark:text-slate-400 hover:text-black dark:hover:text-white'
                     }`}
                   >
                     <span>{t.singleUnit}</span>
-                    <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-mono mt-0.5">
+                    <span className="text-[10px] text-leaf-700 dark:text-leaf-400 font-mono mt-0.5">
                       {product.singleVolume}
                     </span>
                   </button>
@@ -142,12 +142,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setPackagingType('carton')}
                     className={`p-2.5 rounded-xl border text-xs font-bold flex flex-col items-start transition-all ${
                       packagingType === 'carton'
-                        ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-white shadow-sm'
+                        ? 'border-leaf-500 bg-leaf-50 dark:bg-leaf-950/40 text-leaf-950 dark:text-white shadow-sm'
                         : 'border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-das-800/60 text-slate-700 dark:text-slate-400 hover:text-black dark:hover:text-white'
                     }`}
                   >
                     <span>{t.cartonPack}</span>
-                    <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-mono mt-0.5">
+                    <span className="text-[10px] text-leaf-700 dark:text-leaf-400 font-mono mt-0.5">
                       {product.cartonLabel}
                     </span>
                   </button>
@@ -160,7 +160,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Specifications Box */}
           <div className="p-4 rounded-2xl bg-slate-50 dark:bg-das-800/60 border border-slate-200 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
             <div className="flex items-center gap-2.5">
-              <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <MapPin className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
               <div>
                 <span className="text-slate-500 dark:text-slate-400 block text-[10px]">
                   {isArabic ? 'المصدر والتوزيع' : 'Origin & Distribution'}
@@ -170,7 +170,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             <div className="flex items-center gap-2.5">
-              <Package className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <Package className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
               <div>
                 <span className="text-slate-500 dark:text-slate-400 block text-[10px]">
                   {isArabic ? 'مواصفات التغليف' : 'Packaging Specs'}
@@ -180,7 +180,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             <div className="flex items-center gap-2.5">
-              <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <Clock className="w-4 h-4 text-leaf-600 dark:text-leaf-400 shrink-0" />
               <div>
                 <span className="text-slate-500 dark:text-slate-400 block text-[10px]">
                   {isArabic ? 'فترة الصلاحية' : 'Shelf Life'}
@@ -200,7 +200,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <span className="text-3xl font-black text-slate-900 dark:text-white font-mono">
                   {(currentPrice * quantity).toFixed(3)}
                 </span>
-                <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{t.fils}</span>
+                <span className="text-sm font-bold text-leaf-600 dark:text-leaf-400">{t.fils}</span>
               </div>
             </div>
 
@@ -229,8 +229,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 onClick={handleAdd}
                 className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 py-3 px-6 rounded-xl font-bold text-sm transition-all ${
                   added 
-                    ? 'bg-emerald-400 text-black' 
-                    : 'bg-emerald-500 hover:bg-emerald-400 text-black shadow-lg shadow-emerald-500/25'
+                    ? 'bg-leaf-500 text-white' 
+                    : 'bg-leaf-600 hover:bg-leaf-500 text-white shadow-md shadow-leaf-600/25'
                 }`}
               >
                 {added ? (
@@ -251,7 +251,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 href={getWhatsAppProductLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-slate-100 hover:bg-emerald-50 dark:bg-das-800 dark:hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-colors"
+                className="p-3 rounded-xl bg-slate-100 hover:bg-leaf-50 dark:bg-das-800 dark:hover:bg-leaf-950/40 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-800 transition-colors"
                 title={t.whatsappQuickOrder}
               >
                 <MessageCircle className="w-5 h-5" />

@@ -159,24 +159,30 @@ export const App: React.FC = () => {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onNavigateSection={handleNavigateSection}
+        products={PRODUCTS}
+        onAddToCart={handleAddToCart}
+        onQuickView={(prod) => setQuickViewProduct(prod)}
       />
 
       {/* Main Content Sections */}
       <main className="flex-1">
-        {/* Hero Section */}
+        {/* Hero Section with Live Backdrop Slideshow and Top Products Carousel */}
         <Hero
           language={language}
           onExploreProducts={() => handleNavigateSection('products')}
           onExploreB2B={() => handleNavigateSection('b2b')}
+          onAddToCart={handleAddToCart}
+          onQuickView={(prod) => setQuickViewProduct(prod)}
         />
 
-        {/* Product Catalogue Section */}
+        {/* Product Catalogue Section with in-page Search & Category Showcase */}
         <ProductGrid
           products={PRODUCTS}
           language={language}
           selectedCategory={selectedCategory}
           onSelectCategory={setSelectedCategory}
           searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
           onAddToCart={handleAddToCart}
           onQuickView={(prod) => setQuickViewProduct(prod)}
         />

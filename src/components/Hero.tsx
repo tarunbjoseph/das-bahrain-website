@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Sparkles, 
   Truck, 
@@ -7,52 +7,161 @@ import {
   ArrowRight, 
   ArrowLeft,
   Flame, 
-  CheckCircle2,
-  Package
+  CheckCircle2, 
+  Package,
+  ChevronLeft,
+  ChevronRight,
+  ShoppingCart,
+  MessageCircle,
+  Eye,
+  Check,
+  Star,
+  MapPin,
+  Clock
 } from 'lucide-react';
-import { Language } from '../types';
+import { Language, Product, PackagingType } from '../types';
 import { translations } from '../utils/translations';
-import { COMPANY_INFO } from '../data/mockData';
+import { COMPANY_INFO, PRODUCTS } from '../data/mockData';
 
 interface HeroProps {
   language: Language;
   onExploreProducts: () => void;
   onExploreB2B: () => void;
+  onAddToCart?: (product: Product, packagingType: PackagingType, quantity: number) => void;
+  onQuickView?: (product: Product) => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
   language,
   onExploreProducts,
-  onExploreB2B
+  onExploreB2B,
+  onAddToCart,
+  onQuickView
 }) => {
   const t = translations[language];
   const isRtl = language === 'ar';
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
-  return (
-    <section id="hero" className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24">
-      {/* Dynamic Background Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-10 w-[350px] h-[350px] bg-brand-red/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+  // Background rotating slideshow images (from official distributor media)
+  const heroBackdrops = [
+    {
+      url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-1-HGdNez6Y.jpg',
+      alt: 'Alsi Cola Bahrain FMCG distribution and warehouse'
+    },
+    {
+      url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-2-1DU4nM6X.jpg',
+      alt: 'Alsi Cola Bahrain cold drinks and retail cans'
+    },
+    {
+      url: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-3-CAIUPCbG.jpg',
+      alt: 'Dar Al Baba Salam daily van sales routes across Bahrain'
+    }
+  ];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  const [bgIndex, setBgIndex] = useState(0);
+
+  // Rotate hero backdrops every 6.5 seconds
+  useEffect(() => {
+    const bgTimer = setInterval(() => {
+      setBgIndex((prev) => (prev + 1) % heroBackdrops.length);
+    }, 6500);
+    return () => clearInterval(bgTimer);
+  }, [heroBackdrops.length]);
+
+  // Featured top products for the dynamic interactive slideshow
+  const topProducts = PRODUCTS.slice(0, 5);
+  const [productSlideIndex, setProductSlideIndex] = useState(0);
+  const [packagingType, setPackagingType] = useState<PackagingType>('single');
+  const [isPaused, setIsPaused] = useState(false);
+  const [addedAnimation, setAddedAnimation] = useState(false);
+
+  // Auto-advance top products carousel
+  useEffect(() => {
+    if (isPaused) return;
+    const slideTimer = setInterval(() => {
+      setProductSlideIndex((prev) => (prev + 1) % topProducts.length);
+    }, 4500);
+    return () => clearInterval(slideTimer);
+  }, [isPaused, topProducts.length]);
+
+  const currentProduct = topProducts[productSlideIndex];
+  const currentPrice = packagingType === 'single' ? currentProduct.singlePrice : currentProduct.cartonPrice;
+  const currentVolume = packagingType === 'single' ? currentProduct.singleVolume : currentProduct.cartonLabel;
+
+  const handleNextSlide = () => {
+    setProductSlideIndex((prev) => (prev + 1) % topProducts.length);
+  };
+
+  const handlePrevSlide = () => {
+    setProductSlideIndex((prev) => (prev - 1 + topProducts.length) % topProducts.length);
+  };
+
+  const handleQuickAdd = () => {
+    if (onAddToCart) {
+      onAddToCart(currentProduct, packagingType, 1);
+      setAddedAnimation(true);
+      setTimeout(() => setAddedAnimation(false), 1600);
+    }
+  };
+
+  const getWhatsAppProductLink = () => {
+    const itemName = isRtl ? currentProduct.nameAr : currentProduct.name;
+    const pkgName = packagingType === 'single' ? currentProduct.singleVolume : currentProduct.cartonLabel;
+    const totalCost = currentPrice.toFixed(3);
+    const text = encodeURIComponent(
+      `Hello DAS Bahrain, I would like to order directly from the featured showcase:\n• Product: ${itemName}\n• Packaging: ${pkgName}\n• Price: ${totalCost} BHD\nPlease confirm availability and delivery time.`
+    );
+    return `https://wa.me/${COMPANY_INFO.primaryWhatsApp}?text=${text}`;
+  };
+
+  return (
+    <section id="hero" className="relative min-h-[92vh] overflow-hidden flex flex-col justify-center py-12 lg:py-20 transition-colors duration-300">
+      
+      {/* Dynamic Background Backdrop Slideshow with Ken Burns effect */}
+      <div className="absolute inset-0 w-full h-full -z-20 overflow-hidden bg-slate-900">
+        {heroBackdrops.map((bg, idx) => (
+          <div
+            key={bg.url}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
+              idx === bgIndex ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+          >
+            <img
+              src={bg.url}
+              alt={bg.alt}
+              className={`w-full h-full object-cover object-center ${
+                idx === bgIndex ? 'animate-ken-burns' : ''
+              }`}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Atmospheric Nature Tint Gradient Overlay (ensures crisp AAA contrast in both modes) */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/92 via-slate-50/85 to-slate-100/95 dark:from-das-950/92 dark:via-das-900/85 dark:to-das-950/95 backdrop-blur-[3px]" />
+
+      {/* Subtle Botanical Leaf Glows */}
+      <div className="absolute top-10 left-1/4 w-[600px] h-[400px] bg-leaf-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Headline & Action Buttons */}
-          <div className="lg:col-span-7 flex flex-col items-start">
+          {/* Left Column: Headline, Trust Pill & Action Buttons */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right">
             
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-              <span>{t.heroBadge}</span>
+            {/* Natural Leaf Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-50 dark:bg-leaf-950/80 border border-leaf-300 dark:border-leaf-700/60 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-leaf-500 animate-pulse" />
+              <span>{isRtl ? 'مملكة البحرين • الوكيل المعتمد لمشروبات الساي كولا' : 'Kingdom of Bahrain • Licensed Alsi Cola Distributor'}</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-6 text-slate-900 dark:text-white">
               <span className="block text-slate-700 dark:text-slate-300 font-extrabold text-2xl sm:text-3xl mb-1">
                 {t.heroTitlePrefix}
               </span>
-              <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-600 dark:from-white dark:via-slate-100 dark:to-emerald-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-slate-900 via-leaf-800 to-leaf-600 dark:from-white dark:via-leaf-200 dark:to-leaf-400 bg-clip-text text-transparent">
                 {t.heroTitleHighlight}
               </span>
             </h1>
@@ -63,158 +172,252 @@ export const Hero: React.FC<HeroProps> = ({
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-8">
               <button
                 onClick={onExploreProducts}
-                className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-black font-extrabold px-7 py-3.5 rounded-xl shadow-xl shadow-emerald-600/30 hover:shadow-emerald-500/40 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-leaf-600 to-leaf-500 hover:from-leaf-500 hover:to-leaf-600 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-leaf transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
               >
                 <span>{t.heroCtaShop}</span>
-                <ArrowIcon className="w-4 h-4 text-black" />
+                <ArrowIcon className="w-4 h-4" />
               </button>
 
               <button
                 onClick={onExploreB2B}
-                className="flex items-center justify-center gap-2.5 bg-white dark:bg-das-800/80 hover:bg-slate-100 dark:hover:bg-das-700/80 border border-slate-300 dark:border-emerald-500/30 hover:border-emerald-400/60 text-slate-900 dark:text-white font-bold px-6 py-3.5 rounded-xl shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="flex items-center justify-center gap-2.5 bg-white dark:bg-das-850 hover:bg-slate-100 dark:hover:bg-das-800 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white font-bold px-7 py-3.5 rounded-2xl shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
               >
-                <Store className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                <Store className="w-4 h-4 text-leaf-600 dark:text-leaf-400" />
                 <span>{t.heroCtaB2b}</span>
               </button>
             </div>
 
-            {/* Trust Highlights Checkmarks */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200 dark:border-white/10 text-xs text-slate-600 dark:text-slate-300">
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{language === 'ar' ? 'توصيل لجميع مناطق البحرين' : 'Island-wide Bahrain Delivery'}</span>
+            {/* Realistic Trust Checkmarks with Nature Green Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200 dark:border-white/10 text-xs text-slate-700 dark:text-slate-300">
+              <div className="flex items-center gap-2.5">
+                <div className="w-6 h-6 rounded-full bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 flex items-center justify-center shrink-0">
+                  <CheckCircle2 className="w-4 h-4" />
+                </div>
+                <span className="font-medium">{language === 'ar' ? 'توصيل لجميع مناطق البحرين' : 'Island-wide Bahrain Delivery'}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{language === 'ar' ? 'توريد يومي لأسواق وبقالات البحرين' : 'Daily Van Sales for Stores'}</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-6 h-6 rounded-full bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 flex items-center justify-center shrink-0">
+                  <Truck className="w-4 h-4" />
+                </div>
+                <span className="font-medium">{language === 'ar' ? 'توريد يومي لأسواق وبقالات البحرين' : 'Daily Van Sales for Stores'}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{language === 'ar' ? 'دفع آمن عبر بنفت بي وواتساب' : 'BenefitPay & WhatsApp Ready'}</span>
+              <div className="flex items-center gap-2.5">
+                <div className="w-6 h-6 rounded-full bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 flex items-center justify-center shrink-0">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <span className="font-medium">{language === 'ar' ? 'دفع آمن عبر بنفت بي وواتساب' : 'BenefitPay & WhatsApp Ready'}</span>
               </div>
             </div>
 
           </div>
 
-          {/* Right Column: Hero Visual Feature Showcase */}
-          <div className="lg:col-span-5 relative">
+          {/* Right Column: Dynamic Top Products Slideshow / Interactive Showcase */}
+          <div 
+            className="lg:col-span-5 relative"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Featured Showcase Card */}
-              <div className="relative rounded-3xl p-6 bg-white dark:bg-das-850/90 border border-slate-200 dark:border-white/15 overflow-hidden shadow-2xl shadow-slate-200/60 dark:shadow-none">
+              {/* Main Showcase Interactive Card */}
+              <div className="relative rounded-3xl p-6 sm:p-7 bg-white dark:bg-das-850/95 border border-slate-200 dark:border-white/15 overflow-hidden shadow-elevated transition-all">
                 
-                {/* Visual Header */}
+                {/* Visual Header with Slide Navigation */}
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 tracking-wide uppercase">
-                      {language === 'ar' ? 'تشكيلة المشروبات الحصرية' : 'Featured Lineup'}
+                    <span className="w-2.5 h-2.5 rounded-full bg-leaf-500 animate-ping" />
+                    <span className="text-xs font-black text-leaf-700 dark:text-leaf-400 tracking-wider uppercase">
+                      {isRtl ? 'أبرز منتجات التوزيع اليومية' : 'Top Featured Lineup'}
                     </span>
                   </div>
-                  <span className="text-[11px] bg-slate-100 dark:bg-white/10 text-slate-700 dark:text-white font-medium px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-white/10">
-                    Bahrain 2026
-                  </span>
+
+                  {/* Prev / Next Slide Controls */}
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={handlePrevSlide}
+                      className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-das-800 dark:hover:bg-das-700 text-slate-700 dark:text-white flex items-center justify-center transition-colors border border-slate-200 dark:border-white/10"
+                      aria-label="Previous product"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <span className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 px-1">
+                      {productSlideIndex + 1}/{topProducts.length}
+                    </span>
+                    <button
+                      onClick={handleNextSlide}
+                      className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-das-800 dark:hover:bg-das-700 text-slate-700 dark:text-white flex items-center justify-center transition-colors border border-slate-200 dark:border-white/10"
+                      aria-label="Next product"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
                 </div>
 
-                {/* Hero Showcase Image */}
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-5 bg-gradient-to-b from-slate-900 to-black group">
+                {/* Product Image Stage */}
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100 dark:bg-gradient-to-b dark:from-das-800 dark:to-das-900 border border-slate-200 dark:border-white/10 group">
                   <img
-                    src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=80"
-                    alt="Alsi Cola and Refreshing Drinks in Bahrain"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    src={currentProduct.image}
+                    alt={isRtl ? currentProduct.nameAr : currentProduct.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
                   
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider block mb-1">
-                      Alsi Cola Bahrain
+                  {/* Badges Overlay */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
+                    <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-leaf-500 text-white shadow-md">
+                      {isRtl ? currentProduct.tagAr || currentProduct.tag : currentProduct.tag}
                     </span>
-                    <h3 className="text-xl font-black">
-                      {language === 'ar' ? 'انتعاش الكولا الكلاسيكية الأصيلة' : 'Crisp Refreshment, Pure Taste'}
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/90 dark:bg-black/70 text-slate-900 dark:text-white backdrop-blur-sm border border-white/20">
+                      {isRtl ? currentProduct.brandAr : currentProduct.brand}
+                    </span>
+                  </div>
+
+                  {/* Bottom Image Overlay Info */}
+                  <div className="absolute bottom-3.5 left-4 right-4 text-white pointer-events-none">
+                    <div className="flex items-center gap-1 text-amber-400 text-xs font-mono mb-1">
+                      <Star className="w-3.5 h-3.5 fill-amber-400" />
+                      <span className="font-bold">{currentProduct.rating}</span>
+                      <span className="text-[10px] text-white/70">({currentProduct.reviewsCount} reviews)</span>
+                    </div>
+                    <h3 className="text-lg font-black leading-tight drop-shadow-md">
+                      {isRtl ? currentProduct.nameAr : currentProduct.name}
                     </h3>
                   </div>
                 </div>
 
-                {/* Floating Micro Feature 1: Van Sales Badge */}
-                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-das-900/90 border border-slate-200 dark:border-white/10 mb-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
-                      <Truck className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">
-                        {language === 'ar' ? 'فان سيلز يومي للبقالات' : 'Active Van Sales Routes'}
-                      </h4>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                        {language === 'ar' ? 'تغطية مستمرة لكل أحياء وقرى البحرين' : 'Direct cold store restocking & stands'}
-                      </p>
-                    </div>
-                  </div>
-                  <span className="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-500/30 px-2 py-1 rounded-lg">
-                    Daily
-                  </span>
+                {/* Packaging Switcher */}
+                <div className="p-1 rounded-xl bg-slate-100 dark:bg-das-900 border border-slate-200 dark:border-white/10 flex items-center gap-1 text-xs mb-4">
+                  <button
+                    onClick={() => setPackagingType('single')}
+                    className={`flex-1 py-1.5 px-2 rounded-lg font-bold text-xs transition-all ${
+                      packagingType === 'single'
+                        ? 'bg-leaf-600 text-white shadow-sm'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                  >
+                    {t.singleUnit} ({currentProduct.singleVolume})
+                  </button>
+                  <button
+                    onClick={() => setPackagingType('carton')}
+                    className={`flex-1 py-1.5 px-2 rounded-lg font-bold text-xs transition-all flex items-center justify-center gap-1 ${
+                      packagingType === 'carton'
+                        ? 'bg-leaf-600 text-white shadow-sm'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                  >
+                    <span>{t.cartonPack}</span>
+                    <span className="text-[10px] bg-black/20 text-white px-1.5 py-0.2 rounded font-mono">
+                      ×{currentProduct.cartonUnits}
+                    </span>
+                  </button>
                 </div>
 
-                {/* Floating Micro Feature 2: High Velocity Energy Drinks */}
-                <div className="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 dark:bg-das-900/90 border border-slate-200 dark:border-white/10">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
-                      <Flame className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">
-                        {language === 'ar' ? 'مشروبات كود ريد وكود ميكس' : 'Code Red & Code Mix Energy'}
-                      </h4>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400">
-                        {language === 'ar' ? 'الأعلى طلباً ومبيعاً بالكرتون' : 'Top velocity energy drink lineup'}
-                      </p>
+                {/* Price and Cart Action Bar */}
+                <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-100 dark:border-white/10">
+                  <div>
+                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">
+                      {isRtl ? 'السعر الرسمي المعتمد:' : 'Official Price:'}
+                    </span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-black text-slate-900 dark:text-white font-mono">
+                        {currentPrice.toFixed(3)}
+                      </span>
+                      <span className="text-xs font-bold text-leaf-700 dark:text-leaf-400">
+                        {t.fils}
+                      </span>
                     </div>
                   </div>
-                  <span className="text-xs font-mono font-bold text-amber-700 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/60 border border-amber-500/30 px-2 py-1 rounded-lg">
-                    Hot Pick
-                  </span>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={handleQuickAdd}
+                      className={`flex items-center gap-2 py-2.5 px-4 rounded-xl font-bold text-xs transition-all ${
+                        addedAnimation
+                          ? 'bg-leaf-700 text-white'
+                          : 'bg-leaf-600 hover:bg-leaf-500 text-white shadow-leaf hover:scale-105'
+                      }`}
+                    >
+                      {addedAnimation ? (
+                        <>
+                          <Check className="w-4 h-4" />
+                          <span>{t.addedToCart}</span>
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="w-4 h-4" />
+                          <span>{t.addToCart}</span>
+                        </>
+                      )}
+                    </button>
+
+                    <a
+                      href={getWhatsAppProductLink()}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2.5 rounded-xl bg-slate-100 hover:bg-leaf-50 dark:bg-das-900 dark:hover:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-slate-200 dark:border-white/10 hover:border-leaf-500 transition-colors"
+                      title={t.whatsappQuickOrder}
+                    >
+                      <MessageCircle className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+
+                {/* Slideshow Pagination Dots */}
+                <div className="flex items-center justify-center gap-1.5 mt-4 pt-3 border-t border-slate-100 dark:border-white/5">
+                  {topProducts.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setProductSlideIndex(idx)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        idx === productSlideIndex 
+                          ? 'w-6 bg-leaf-600 dark:bg-leaf-400' 
+                          : 'w-2 bg-slate-300 dark:bg-white/20 hover:bg-slate-400'
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
                 </div>
 
               </div>
 
-              {/* Decorative Corner Element */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-emerald-500/20 rounded-full blur-2xl pointer-events-none" />
+              {/* Decorative Nature Glow Behind Card */}
+              <div className="absolute -bottom-6 -right-6 w-36 h-36 bg-leaf-500/20 rounded-full blur-2xl pointer-events-none" />
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Metrics Banner */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl bg-white dark:bg-das-850/80 border border-slate-200/80 dark:border-white/10 shadow-lg shadow-slate-200/40 dark:shadow-none">
+        {/* Bottom Metrics & Van Sales Live Banner with Realistic Badges */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl bg-white/90 dark:bg-das-850/90 border border-slate-200/80 dark:border-white/10 shadow-soft backdrop-blur-md">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-700/50 flex items-center justify-center shrink-0 shadow-sm">
               <Truck className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xl font-black text-slate-900 dark:text-white">{t.stat1Val}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white font-mono">{t.stat1Val}</div>
               <div className="text-xs text-slate-500 dark:text-slate-400">{t.stat1Label}</div>
             </div>
           </div>
 
           <div className="flex items-center gap-4 md:border-x border-slate-200 dark:border-white/10 md:px-6">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-700/50 flex items-center justify-center shrink-0 shadow-sm">
               <Package className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xl font-black text-slate-900 dark:text-white">{t.stat2Val}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white font-mono">{t.stat2Val}</div>
               <div className="text-xs text-slate-500 dark:text-slate-400">{t.stat2Label}</div>
             </div>
           </div>
 
           <div className="flex items-center gap-4 md:pl-2">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+            <div className="w-12 h-12 rounded-2xl bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-700/50 flex items-center justify-center shrink-0 shadow-sm">
               <Store className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-xl font-black text-slate-900 dark:text-white">{t.stat3Val}</div>
+              <div className="text-xl font-black text-slate-900 dark:text-white font-mono">{t.stat3Val}</div>
               <div className="text-xs text-slate-500 dark:text-slate-400">{t.stat3Label}</div>
             </div>
           </div>
@@ -224,3 +427,4 @@ export const Hero: React.FC<HeroProps> = ({
     </section>
   );
 };
+

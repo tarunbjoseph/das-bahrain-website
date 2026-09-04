@@ -97,3 +97,23 @@ body {
 .animate-float {
   animation: floatSlow 4s ease-in-out infinite;
 }
+
+/* Continuous Marquee Ticker */
+.marquee-container:hover .animate-marquee,
+.marquee-container:hover .animate-marquee-slow {
+  animation-play-state: paused;
+}
+
+/* Ken Burns effect for hero images */
+.animate-ken-burns {
+  animation: kenBurns 12s ease-out forwards;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
