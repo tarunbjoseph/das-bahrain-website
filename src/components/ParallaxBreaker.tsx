@@ -12,7 +12,7 @@ export const ParallaxBreaker: React.FC<ParallaxBreakerProps> = ({ language, onEx
   const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative w-full overflow-hidden my-4 md:my-6 py-12 md:py-16 bg-slate-900 text-white">
+    <section className="relative w-full overflow-hidden py-14 md:py-20 bg-slate-900 text-white">
       {/* Background Image with Alsi Cola Can - Bright & Vividly Visible */}
       <img
         src="https://alsicolabh.tfwgsite.com/assets/parallax-divider-DCBafX8t.jpg"

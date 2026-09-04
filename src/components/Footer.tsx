@@ -28,7 +28,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
   };
 
   return (
-    <footer className="bg-slate-900 dark:bg-das-950 border-t border-slate-200 dark:border-white/10 text-slate-400 text-xs">
+    <footer className="bg-slate-900 dark:bg-das-950 border-t border-white/10 text-slate-400 text-xs">
       
       {/* Upper Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

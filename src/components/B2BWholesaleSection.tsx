@@ -141,7 +141,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
   };
 
   return (
-    <section id="b2b" className="relative isolate py-12 md:py-16 overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="b2b" className="relative isolate py-12 md:py-16 overflow-hidden transition-colors duration-300">
       
       {/* Seamless Ambient Logistics & Route Backdrop extending from the top */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
@@ -150,7 +150,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
           alt="DAS Bahrain FMCG Distribution & Van Sales Logistics"
           className="w-full h-full object-cover opacity-35 dark:opacity-20 filter blur-[1px] scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-slate-50/55 to-white/75 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/70 via-slate-50/55 to-slate-50/75 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90" />
       </div>
 
       {/* Background Ambience Glows */}
