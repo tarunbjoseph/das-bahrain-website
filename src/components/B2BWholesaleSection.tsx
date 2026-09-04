@@ -141,13 +141,23 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
   };
 
   return (
-    <section id="b2b" className="py-12 md:py-16 bg-slate-100/80 dark:bg-gradient-to-b dark:from-das-950 dark:via-das-900 dark:to-das-950 relative overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="b2b" className="relative isolate py-12 md:py-16 overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
       
-      {/* Background Ambience */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-blue-500/5 blur-[140px] rounded-full pointer-events-none" />
+      {/* Seamless Ambient Logistics & Route Backdrop extending from the top */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <img
+          src="https://alsicolabh.tfwgsite.com/assets/gardner-hero-1-HGdNez6Y.jpg"
+          alt="DAS Bahrain FMCG Distribution & Van Sales Logistics"
+          className="w-full h-full object-cover opacity-35 dark:opacity-20 filter blur-[1px] scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-slate-50/55 to-white/75 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Background Ambience Glows */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-leaf-500/10 blur-[140px] rounded-full pointer-events-none z-10" />
+      <div className="absolute bottom-0 left-10 w-[400px] h-[400px] bg-blue-500/10 blur-[140px] rounded-full pointer-events-none z-10" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">

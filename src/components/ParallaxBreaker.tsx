@@ -24,8 +24,8 @@ export const ParallaxBreaker: React.FC<ParallaxBreakerProps> = ({ language, onEx
       {/* Subtle Transparent Overlay - Leaves Left Product Can Bright and Clear */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/40 to-black/60 rtl:from-black/60 rtl:via-black/40 rtl:to-black/20" />
 
-      {/* Content Container with Translucent Glass Card for AAA text legibility */}
-      <div className="max-w-4xl mx-auto px-6 sm:px-10 py-8 sm:py-10 rounded-3xl bg-black/45 backdrop-blur-md border border-white/20 relative z-10 text-center space-y-5 shadow-2xl">
+      {/* Content Container - Direct on image without rectangular box or blur */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-leaf-300 text-xs font-bold uppercase tracking-[0.25em]">
           <Sparkles className="w-3.5 h-3.5" />
           <span>{isArabic ? 'شبكة التوريد الموثوقة' : 'Dependable Bahrain Supply Chain'}</span>

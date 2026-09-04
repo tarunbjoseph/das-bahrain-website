@@ -193,15 +193,15 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
           </div>
 
           {/* Central Sales Division */}
-          <div className="p-6 rounded-2xl bg-leaf-50/60 dark:bg-das-850 border border-leaf-300/70 dark:border-leaf-800 hover:border-leaf-500 transition-all flex flex-col justify-between shadow-soft">
+          <div className="p-6 rounded-2xl bg-slate-50 dark:bg-das-850 border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 transition-all flex flex-col justify-between">
             <div>
-              <div className="w-10 h-10 rounded-xl bg-leaf-600 text-white flex items-center justify-center mb-4 font-bold shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-leaf-500/15 text-leaf-700 dark:text-leaf-400 flex items-center justify-center mb-4">
                 <Store className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
                 {isArabic ? 'إدارة المبيعات المركزية (جملة)' : 'Central Sales (Wholesale)'}
               </h4>
-              <p className="text-xs text-slate-700 dark:text-slate-300 font-mono">
+              <p className="text-xs text-slate-600 dark:text-slate-300 font-mono">
                 {COMPANY_INFO.centralSalesDivision}
               </p>
             </div>
