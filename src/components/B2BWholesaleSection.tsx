@@ -97,7 +97,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
   };
 
   return (
-    <section id="b2b" className="py-20 bg-gradient-to-b from-das-950 via-das-900 to-das-950 relative overflow-hidden border-y border-white/10">
+    <section id="b2b" className="py-20 bg-slate-100/80 dark:bg-gradient-to-b dark:from-das-950 dark:via-das-900 dark:to-das-950 relative overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
       
       {/* Background Ambience */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
@@ -107,16 +107,16 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950 border border-emerald-500/30 dark:border-emerald-500/40 text-emerald-800 dark:text-emerald-400 text-xs font-bold uppercase tracking-wider mb-4">
             <Building2 className="w-4 h-4" />
             <span>{t.b2bBadge}</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight mb-4">
             {t.b2bTitle}
           </h2>
 
-          <p className="text-base text-slate-300 leading-relaxed">
+          <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
             {t.b2bSubtitle}
           </p>
         </div>
@@ -125,8 +125,8 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           
           {/* Pillar 1: Van Sales */}
-          <div className="p-8 rounded-3xl glass-panel border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-400 transition-all shadow-xl">
-            <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-emerald-500/30 relative overflow-hidden group hover:border-emerald-500 dark:hover:border-emerald-400 transition-all shadow-xl shadow-slate-200/50 dark:shadow-none">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Truck className="w-7 h-7" />
             </div>
 
@@ -134,102 +134,102 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
               <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-emerald-500 text-black">
                 Core Operation
               </span>
-              <span className="text-xs text-slate-400 font-mono">Daily Route</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">Daily Route</span>
             </div>
 
-            <h3 className="text-xl font-black text-white mb-3">
+            <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">
               {t.vanSalesTitle}
             </h3>
 
-            <p className="text-sm text-slate-300 leading-relaxed mb-6">
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
               {t.vanSalesDesc}
             </p>
 
-            <ul className="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+            <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-200 border-t border-slate-100 dark:border-white/10 pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>{isArabic ? 'كميات مرنة وتوريد يومي حسب الحاجة' : 'Small batch daily restocking'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>{isArabic ? 'توفير ستاندات ومواد دعائية مجانية' : 'Branded floor & counter display stands'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>{isArabic ? 'فواتير إلكترونية فورية عند التسليم' : 'On-the-spot electronic invoicing'}</span>
               </li>
             </ul>
           </div>
 
           {/* Pillar 2: Supermarkets & Hypermarkets */}
-          <div className="p-8 rounded-3xl glass-panel border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all shadow-xl">
-            <div className="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 relative overflow-hidden group hover:border-amber-400 transition-all shadow-xl shadow-slate-200/50 dark:shadow-none">
+            <div className="w-14 h-14 rounded-2xl bg-amber-500/15 text-amber-600 dark:text-amber-400 border border-amber-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Store className="w-7 h-7" />
             </div>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30">
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-300/60 dark:border-amber-500/30">
                 Key Accounts
               </span>
-              <span className="text-xs text-slate-400 font-mono">Retail Chains</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">Retail Chains</span>
             </div>
 
-            <h3 className="text-xl font-black text-white mb-3">
+            <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">
               {t.supermarketTitle}
             </h3>
 
-            <p className="text-sm text-slate-300 leading-relaxed mb-6">
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
               {t.supermarketDesc}
             </p>
 
-            <ul className="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+            <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-200 border-t border-slate-100 dark:border-white/10 pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                 <span>{isArabic ? 'ميرتشندايزينغ احترافي وإدارة الرفوف' : 'Dedicated visual merchandising team'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                 <span>{isArabic ? 'تنسيق العروض الترويجية الموسمية' : 'Coordinated retail promotions'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
                 <span>{isArabic ? 'توريد مجدول ومنتظم للمستودعات' : 'Scheduled multi-branch supply'}</span>
               </li>
             </ul>
           </div>
 
           {/* Pillar 3: Wholesale & Re-export */}
-          <div className="p-8 rounded-3xl glass-panel border border-white/10 relative overflow-hidden group hover:border-white/20 transition-all shadow-xl">
-            <div className="w-14 h-14 rounded-2xl bg-blue-500/15 text-blue-400 border border-blue-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 relative overflow-hidden group hover:border-blue-400 transition-all shadow-xl shadow-slate-200/50 dark:shadow-none">
+            <div className="w-14 h-14 rounded-2xl bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
               <Layers className="w-7 h-7" />
             </div>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+              <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-500/20 text-blue-800 dark:text-blue-300 border border-blue-300/60 dark:border-blue-500/30">
                 Bulk Volume
               </span>
-              <span className="text-xs text-slate-400 font-mono">Pallets & Containers</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">Pallets & Containers</span>
             </div>
 
-            <h3 className="text-xl font-black text-white mb-3">
+            <h3 className="text-xl font-black text-slate-900 dark:text-white mb-3">
               {t.wholesaleTitle}
             </h3>
 
-            <p className="text-sm text-slate-300 leading-relaxed mb-6">
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
               {t.wholesaleDesc}
             </p>
 
-            <ul className="space-y-2 text-xs text-slate-300 border-t border-white/10 pt-4">
+            <ul className="space-y-2.5 text-xs text-slate-700 dark:text-slate-200 border-t border-slate-100 dark:border-white/10 pt-4">
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                 <span>{isArabic ? 'أسعار تفضيلية بالكرتون والطبليات' : 'Volume tiered pricing & pallets'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                 <span>{isArabic ? 'تسهيلات سداد للشركات المسجلة' : 'Credit terms for verified businesses'}</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-400 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                 <span>{isArabic ? 'تجهيز طلبيات الفنادق والمطاعم' : 'HORECA & catering contract support'}</span>
               </li>
             </ul>
@@ -238,43 +238,43 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         </div>
 
         {/* Interactive B2B Inquiry & Van Sales Booking Form */}
-        <div className="rounded-3xl glass-panel border border-white/15 p-6 sm:p-10 lg:p-12 relative shadow-2xl">
+        <div className="rounded-3xl bg-white dark:bg-das-850/90 border border-slate-200 dark:border-white/15 p-6 sm:p-10 lg:p-12 relative shadow-2xl shadow-slate-200/50 dark:shadow-none">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             
             {/* Left Info Column */}
             <div className="lg:col-span-5 flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-wider mb-3">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-3">
                   <Clock className="w-4 h-4" />
                   <span>{isArabic ? 'تواصل مباشر مع الإدارة' : 'Direct Central Dispatch'}</span>
                 </div>
 
-                <h3 className="text-2xl sm:text-3xl font-black text-white mb-4">
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-4">
                   {t.b2bFormTitle}
                 </h3>
 
-                <p className="text-sm text-slate-300 leading-relaxed mb-6">
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
                   {isArabic
                     ? 'املأ النموذج السريع وسيصل طلبك فوراً إلى هاتف قسم المبيعات المركزي لحجز خط سير الفان أو إرسال قائمة أسعار الجملة المعتمدة.'
                     : 'Submit your store information to schedule a van visit or receive an official wholesale price tier for Alsi Cola and partner FMCG goods.'}
                 </p>
 
                 {/* Central Sales Callout Box */}
-                <div className="p-5 rounded-2xl bg-das-900 border border-emerald-500/30 mb-6">
+                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-das-900 border border-emerald-500/30 mb-6">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="w-10 h-10 rounded-xl bg-emerald-500 text-black flex items-center justify-center font-bold">
                       <PhoneCall className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[11px] text-slate-400 block font-semibold">
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 block font-semibold">
                         {isArabic ? 'هاتف قسم المبيعات المركزي' : 'Central Sales Division Line'}
                       </span>
-                      <strong className="text-base text-white font-mono">
+                      <strong className="text-base text-slate-900 dark:text-white font-mono">
                         {COMPANY_INFO.centralSalesDivision}
                       </strong>
                     </div>
                   </div>
-                  <p className="text-xs text-slate-400">
+                  <p className="text-xs text-slate-600 dark:text-slate-400">
                     {isArabic 
                       ? 'متاح للمكالمات والواتساب المباشر لأصحاب المحلات والتجار طوال أيام الأسبوع (ما عدا الجمعة).'
                       : 'Direct line & WhatsApp for store managers and procurement officers.'}
@@ -283,8 +283,8 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
               </div>
 
               {/* Verified Location */}
-              <div className="text-xs text-slate-400 pt-4 border-t border-white/10">
-                <span className="text-white font-bold block mb-1">
+              <div className="text-xs text-slate-600 dark:text-slate-400 pt-4 border-t border-slate-200 dark:border-white/10">
+                <span className="text-slate-900 dark:text-white font-bold block mb-1">
                   {isArabic ? 'مقر المستودع الرئيسي في البحرين:' : 'Main Distribution Warehouse:'}
                 </span>
                 <span>{isArabic ? COMPANY_INFO.hqAddressAr : COMPANY_INFO.hqAddress}</span>
@@ -294,19 +294,19 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
             {/* Right Form Column */}
             <div className="lg:col-span-7">
               {submitted ? (
-                <div className="p-8 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-center py-12 animate-fadeIn">
+                <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-500/40 text-center py-12 animate-fadeIn">
                   <div className="w-16 h-16 rounded-full bg-emerald-500 text-black flex items-center justify-center mx-auto mb-4 font-bold shadow-lg">
                     <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h4 className="text-2xl font-black text-white mb-2">
+                  <h4 className="text-2xl font-black text-slate-900 dark:text-white mb-2">
                     {isArabic ? 'تم فتح المحادثة عبر واتساب!' : 'Inquiry Dispatched via WhatsApp!'}
                   </h4>
-                  <p className="text-sm text-slate-300 max-w-md mx-auto mb-6">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto mb-6">
                     {t.submitB2bSuccess}
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 rounded-xl bg-das-800 hover:bg-das-700 text-white text-xs font-bold transition-colors"
+                    className="px-6 py-2.5 rounded-xl bg-slate-200 hover:bg-slate-300 dark:bg-das-800 dark:hover:bg-das-700 text-slate-900 dark:text-white text-xs font-bold transition-colors"
                   >
                     {isArabic ? 'إرسال طلب جديد' : 'Submit Another Request'}
                   </button>
@@ -317,7 +317,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                     
                     {/* Store Name */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                         {t.businessNameLabel} *
                       </label>
                       <input
@@ -326,13 +326,13 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                         placeholder={isArabic ? 'مثال: أسواق الأمل، برادة الزنج' : 'e.g. Al Baraka Cold Store, Al Hidd Mart'}
                         value={formData.businessName}
                         onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                        className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-colors"
                       />
                     </div>
 
                     {/* CR Number */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                         {t.crNumberLabel}
                       </label>
                       <input
@@ -340,13 +340,13 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                         placeholder={isArabic ? 'رقم السجل التجاري (اختياري)' : 'Commercial Reg. No. (optional)'}
                         value={formData.crNumber}
                         onChange={(e) => setFormData({ ...formData, crNumber: e.target.value })}
-                        className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono transition-colors"
                       />
                     </div>
 
                     {/* Contact Person */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                         {t.contactPersonLabel} *
                       </label>
                       <input
@@ -355,13 +355,13 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                         placeholder={isArabic ? 'الاسم الكريم' : 'Manager / Buyer Name'}
                         value={formData.contactPerson}
                         onChange={(e) => setFormData({ ...formData, contactPerson: e.target.value })}
-                        className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+                        className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 transition-colors"
                       />
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                         {t.phoneLabel} *
                       </label>
                       <input
@@ -370,22 +370,22 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                         placeholder="+973 3XXXXXXX"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono"
+                        className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-emerald-500 font-mono transition-colors"
                       />
                     </div>
 
                     {/* Governorate */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                         {t.governorateLabel} *
                       </label>
                       <select
                         value={formData.governorate}
                         onChange={(e) => setFormData({ ...formData, governorate: e.target.value })}
-                        className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none"
+                        className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-slate-900 dark:text-white focus:outline-none transition-colors"
                       >
                         {BAHRAIN_GOVERNORATES.map((gov) => (
-                          <option key={gov.id} value={gov.id}>
+                          <option key={gov.id} value={gov.id} className="bg-white dark:bg-das-900 text-slate-900 dark:text-white">
                             {isArabic ? gov.nameAr : gov.name}
                           </option>
                         ))}
@@ -394,18 +394,18 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
 
                     {/* Est Weekly Volume */}
                     <div>
-                      <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                      <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                         {t.weeklyVolumeLabel}
                       </label>
                       <select
                         value={formData.estimatedWeeklyCartons}
                         onChange={(e) => setFormData({ ...formData, estimatedWeeklyCartons: e.target.value })}
-                        className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-white focus:outline-none"
+                        className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2.5 px-3.5 text-xs text-slate-900 dark:text-white focus:outline-none transition-colors"
                       >
-                        <option value="5 - 15 Cartons">5 – 15 Cartons (Van Sales Starter)</option>
-                        <option value="15 - 50 Cartons">15 – 50 Cartons (Regular Cold Store)</option>
-                        <option value="50 - 200 Cartons">50 – 200 Cartons (Supermarket)</option>
-                        <option value="200+ Cartons (Pallets)">200+ Cartons (Pallets / Wholesale)</option>
+                        <option value="5 - 15 Cartons" className="bg-white dark:bg-das-900 text-slate-900 dark:text-white">5 – 15 Cartons (Van Sales Starter)</option>
+                        <option value="15 - 50 Cartons" className="bg-white dark:bg-das-900 text-slate-900 dark:text-white">15 – 50 Cartons (Regular Cold Store)</option>
+                        <option value="50 - 200 Cartons" className="bg-white dark:bg-das-900 text-slate-900 dark:text-white">50 – 200 Cartons (Supermarket)</option>
+                        <option value="200+ Cartons (Pallets)" className="bg-white dark:bg-das-900 text-slate-900 dark:text-white">200+ Cartons (Pallets / Wholesale)</option>
                       </select>
                     </div>
 
@@ -413,7 +413,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
 
                   {/* Checkbox product interests */}
                   <div className="pt-2">
-                    <label className="block text-xs font-bold text-slate-300 mb-2">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2">
                       {t.interestsLabel}
                     </label>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -424,8 +424,8 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                             key={opt.id}
                             className={`flex items-center gap-2.5 p-2.5 rounded-xl border cursor-pointer text-xs transition-all ${
                               checked
-                                ? 'bg-emerald-950/40 border-emerald-500/60 text-white'
-                                : 'bg-das-900 border-white/10 text-slate-400 hover:border-white/20'
+                                ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-950 dark:text-white font-semibold'
+                                : 'bg-slate-50 dark:bg-das-900 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-400 hover:border-slate-300 dark:hover:border-white/20'
                             }`}
                           >
                             <input
@@ -443,7 +443,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
 
                   {/* Notes */}
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1.5">
+                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
                       {t.notesLabel}
                     </label>
                     <textarea
@@ -451,7 +451,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                       placeholder={isArabic ? 'أي تفاصيل عن موقع المحل أو التوقيت المناسب للزيارة...' : 'Specific delivery timing, road/block number, or requested display rack...'}
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      className="w-full bg-das-900 border border-white/15 focus:border-emerald-500 rounded-xl py-2 px-3.5 text-xs text-white placeholder-slate-500 focus:outline-none"
+                      className="w-full bg-slate-50 dark:bg-das-900 border border-slate-300 dark:border-white/15 focus:border-emerald-500 rounded-xl py-2 px-3.5 text-xs text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -465,7 +465,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
                     <ArrowIcon className="w-4 h-4" />
                   </button>
 
-                  <p className="text-[11px] text-center text-slate-400">
+                  <p className="text-[11px] text-center text-slate-500 dark:text-slate-400">
                     {isArabic 
                       ? 'يتم تحويل الطلب فوراً إلى إدارة مبيعات الجملة عبر واتساب لخدمتك بدون أي تأخير.'
                       : 'Directly routes your inquiry to Central Sales Division (+973 3826 9395) with instant confirmation.'}

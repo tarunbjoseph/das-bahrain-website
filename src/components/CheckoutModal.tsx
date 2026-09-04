@@ -101,22 +101,22 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
       <div 
-        className="relative w-full max-w-2xl bg-das-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl animate-scaleUp max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-2xl bg-white dark:bg-das-900 border border-slate-200 dark:border-white/15 rounded-3xl overflow-hidden shadow-2xl animate-scaleUp max-h-[92vh] flex flex-col transition-colors duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="p-5 border-b border-white/10 flex items-center justify-between">
+        <div className="p-5 border-b border-slate-200 dark:border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Truck className="w-5 h-5 text-emerald-400" />
-            <h2 className="text-lg font-black text-white">
+            <Truck className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+            <h2 className="text-lg font-black text-slate-900 dark:text-white">
               {orderComplete ? t.orderSuccessTitle : t.checkoutTitle}
             </h2>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-white/10 text-slate-400 hover:text-white"
+            className="p-1.5 rounded-full hover:bg-slate-100 dark:hover:bg-white/10 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -132,51 +132,51 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
 
               <div>
-                <span className="text-xs font-mono font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full">
+                <span className="text-xs font-mono font-bold text-emerald-800 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-500/30 px-3 py-1 rounded-full">
                   {orderId}
                 </span>
-                <h3 className="text-2xl font-black text-white mt-2">
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mt-2">
                   {t.orderSuccessTitle}
                 </h3>
-                <p className="text-sm text-slate-300 max-w-md mx-auto mt-1">
+                <p className="text-sm text-slate-600 dark:text-slate-300 max-w-md mx-auto mt-1">
                   {t.orderSuccessDesc}
                 </p>
               </div>
 
               {/* BenefitPay Prompt if selected */}
               {form.paymentMethod === 'benefitpay' && (
-                <div className="p-5 rounded-2xl bg-das-850 border border-emerald-500/30 max-w-sm mx-auto text-left rtl:text-right">
+                <div className="p-5 rounded-2xl bg-slate-50 dark:bg-das-850 border border-emerald-500/30 max-w-sm mx-auto text-left rtl:text-right">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold text-xs">
                       Benefit
                     </div>
                     <div>
-                      <h4 className="text-xs font-bold text-white">BenefitPay Instant QR</h4>
-                      <p className="text-[11px] text-slate-400">{t.benefitPayQrPrompt}</p>
+                      <h4 className="text-xs font-bold text-slate-900 dark:text-white">BenefitPay Instant QR</h4>
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400">{t.benefitPayQrPrompt}</p>
                     </div>
                   </div>
                   <div className="bg-white p-3 rounded-xl mx-auto w-36 h-36 flex items-center justify-center shadow-md">
                     <QrCode className="w-28 h-28 text-black" />
                   </div>
-                  <div className="text-center mt-2 text-xs font-mono text-emerald-400 font-bold">
+                  <div className="text-center mt-2 text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold">
                     Amount: {total.toFixed(3)} BHD
                   </div>
                 </div>
               )}
 
               {/* Summary details */}
-              <div className="p-4 rounded-2xl bg-das-850 border border-white/10 max-w-md mx-auto text-xs text-slate-300 space-y-2 text-left rtl:text-right">
+              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-das-850 border border-slate-200 dark:border-white/10 max-w-md mx-auto text-xs text-slate-700 dark:text-slate-300 space-y-2 text-left rtl:text-right">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">{isArabic ? 'العميل:' : 'Customer:'}</span>
-                  <span className="font-bold text-white">{form.customerName}</span>
+                  <span className="text-slate-500 dark:text-slate-400">{isArabic ? 'العميل:' : 'Customer:'}</span>
+                  <span className="font-bold text-slate-900 dark:text-white">{form.customerName}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">{isArabic ? 'الهاتف:' : 'Phone:'}</span>
-                  <span className="font-mono text-white">{form.phoneNumber}</span>
+                  <span className="text-slate-500 dark:text-slate-400">{isArabic ? 'الهاتف:' : 'Phone:'}</span>
+                  <span className="font-mono text-slate-900 dark:text-white">{form.phoneNumber}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">{isArabic ? 'المبلغ الكلي:' : 'Total Amount:'}</span>
-                  <span className="font-mono font-bold text-emerald-400 text-sm">{total.toFixed(3)} BHD</span>
+                  <span className="text-slate-500 dark:text-slate-400">{isArabic ? 'المبلغ الكلي:' : 'Total Amount:'}</span>
+                  <span className="font-mono font-bold text-emerald-700 dark:text-emerald-400 text-sm">{total.toFixed(3)} BHD</span>
                 </div>
               </div>
 
@@ -192,7 +192,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
                 <button
                   onClick={onClose}
-                  className="w-full py-2.5 text-xs font-bold text-slate-400 hover:text-white transition-colors"
+                  className="w-full py-2.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                 >
                   {t.closeModal}
                 </button>
@@ -204,45 +204,45 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               
               {/* Delivery Info */}
               <div>
-                <h3 className="text-sm font-bold text-white flex items-center gap-2 mb-3">
-                  <MapPin className="w-4 h-4 text-emerald-400" />
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+                  <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>{t.deliveryInfoTitle}</span>
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <div>
-                    <label className="block text-slate-400 mb-1 font-semibold">{t.fullNameLabel} *</label>
+                    <label className="block text-slate-700 dark:text-slate-300 mb-1 font-semibold">{t.fullNameLabel} *</label>
                     <input
                       type="text"
                       required
                       placeholder="e.g. Mohammed Al Khalifa"
                       value={form.customerName}
                       onChange={(e) => setForm({ ...form, customerName: e.target.value })}
-                      className="w-full bg-das-800 border border-white/10 rounded-xl py-2 px-3 text-white focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-slate-50 dark:bg-das-800 border border-slate-300 dark:border-white/10 rounded-xl py-2 px-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-400 mb-1 font-semibold">{t.mobileLabel} *</label>
+                    <label className="block text-slate-700 dark:text-slate-300 mb-1 font-semibold">{t.mobileLabel} *</label>
                     <input
                       type="tel"
                       required
                       placeholder="+973 3XXXXXXX"
                       value={form.phoneNumber}
                       onChange={(e) => setForm({ ...form, phoneNumber: e.target.value })}
-                      className="w-full bg-das-800 border border-white/10 rounded-xl py-2 px-3 text-white focus:outline-none focus:border-emerald-500 font-mono"
+                      className="w-full bg-slate-50 dark:bg-das-800 border border-slate-300 dark:border-white/10 rounded-xl py-2 px-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono transition-colors"
                     />
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="block text-slate-400 mb-1 font-semibold">{t.governorateLabel} *</label>
+                    <label className="block text-slate-700 dark:text-slate-300 mb-1 font-semibold">{t.governorateLabel} *</label>
                     <select
                       value={form.governorate}
                       onChange={(e) => setForm({ ...form, governorate: e.target.value })}
-                      className="w-full bg-das-800 border border-white/10 rounded-xl py-2 px-3 text-white focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-slate-50 dark:bg-das-800 border border-slate-300 dark:border-white/10 rounded-xl py-2 px-3 text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500 transition-colors"
                     >
                       {BAHRAIN_GOVERNORATES.map((gov) => (
-                        <option key={gov.id} value={gov.id}>
+                        <option key={gov.id} value={gov.id} className="bg-white dark:bg-das-900 text-slate-900 dark:text-white">
                           {isArabic ? gov.nameAr : gov.name}
                         </option>
                       ))}
@@ -250,35 +250,35 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-slate-400 mb-1 font-semibold">{t.blockLabel}</label>
+                    <label className="block text-slate-700 dark:text-slate-300 mb-1 font-semibold">{t.blockLabel}</label>
                     <input
                       type="text"
                       placeholder="e.g. 115"
                       value={form.block}
                       onChange={(e) => setForm({ ...form, block: e.target.value })}
-                      className="w-full bg-das-800 border border-white/10 rounded-xl py-2 px-3 text-white focus:outline-none focus:border-emerald-500 font-mono"
+                      className="w-full bg-slate-50 dark:bg-das-800 border border-slate-300 dark:border-white/10 rounded-xl py-2 px-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-slate-400 mb-1 font-semibold">{t.roadLabel}</label>
+                    <label className="block text-slate-700 dark:text-slate-300 mb-1 font-semibold">{t.roadLabel}</label>
                     <input
                       type="text"
                       placeholder="e.g. Road 1527"
                       value={form.road}
                       onChange={(e) => setForm({ ...form, road: e.target.value })}
-                      className="w-full bg-das-800 border border-white/10 rounded-xl py-2 px-3 text-white focus:outline-none focus:border-emerald-500 font-mono"
+                      className="w-full bg-slate-50 dark:bg-das-800 border border-slate-300 dark:border-white/10 rounded-xl py-2 px-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono transition-colors"
                     />
                   </div>
 
                   <div className="sm:col-span-2">
-                    <label className="block text-slate-400 mb-1 font-semibold">{t.buildingLabel}</label>
+                    <label className="block text-slate-700 dark:text-slate-300 mb-1 font-semibold">{t.buildingLabel}</label>
                     <input
                       type="text"
                       placeholder="e.g. Building 2000, Flat 4"
                       value={form.building}
                       onChange={(e) => setForm({ ...form, building: e.target.value })}
-                      className="w-full bg-das-800 border border-white/10 rounded-xl py-2 px-3 text-white focus:outline-none focus:border-emerald-500"
+                      className="w-full bg-slate-50 dark:bg-das-800 border border-slate-300 dark:border-white/10 rounded-xl py-2 px-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
                     />
                   </div>
                 </div>
@@ -286,8 +286,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               {/* Payment Methods */}
               <div>
-                <h3 className="text-sm font-bold text-white flex items-center gap-2 mb-3">
-                  <CreditCard className="w-4 h-4 text-emerald-400" />
+                <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+                  <CreditCard className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                   <span>{t.paymentOptionTitle}</span>
                 </h3>
 
@@ -295,8 +295,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {/* WhatsApp COD */}
                   <label className={`flex items-center gap-3 p-3 rounded-2xl border cursor-pointer transition-all ${
                     form.paymentMethod === 'whatsapp' 
-                      ? 'bg-emerald-950/40 border-emerald-500 text-white' 
-                      : 'bg-das-800 border-white/10 text-slate-300'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-slate-900 dark:text-white' 
+                      : 'bg-slate-50 dark:bg-das-800 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                   }`}>
                     <input
                       type="radio"
@@ -305,10 +305,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       onChange={() => setForm({ ...form, paymentMethod: 'whatsapp' })}
                       className="accent-emerald-500"
                     />
-                    <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <MessageCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     <div className="flex-1">
-                      <strong className="block text-white">{t.payWhatsAppMethod}</strong>
-                      <span className="text-[11px] text-slate-400">
+                      <strong className="block text-slate-900 dark:text-white">{t.payWhatsAppMethod}</strong>
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400">
                         {isArabic ? 'تأكيد فوري عبر واتساب ودفع نقد أو بنفت بي عند وصول المندوب' : 'Instant WhatsApp receipt & pay on delivery'}
                       </span>
                     </div>
@@ -317,8 +317,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {/* BenefitPay */}
                   <label className={`flex items-center gap-3 p-3 rounded-2xl border cursor-pointer transition-all ${
                     form.paymentMethod === 'benefitpay' 
-                      ? 'bg-emerald-950/40 border-emerald-500 text-white' 
-                      : 'bg-das-800 border-white/10 text-slate-300'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-slate-900 dark:text-white' 
+                      : 'bg-slate-50 dark:bg-das-800 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                   }`}>
                     <input
                       type="radio"
@@ -329,8 +329,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     />
                     <QrCode className="w-4 h-4 text-red-500 shrink-0" />
                     <div className="flex-1">
-                      <strong className="block text-white">{t.payBenefitPayMethod}</strong>
-                      <span className="text-[11px] text-slate-400">
+                      <strong className="block text-slate-900 dark:text-white">{t.payBenefitPayMethod}</strong>
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400">
                         {isArabic ? 'الدفع المباشر عبر تطبيق بنفت بي الوطني برمز الاستجابة السريعة' : 'Bahrain National Instant Payment QR'}
                       </span>
                     </div>
@@ -339,8 +339,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   {/* Card */}
                   <label className={`flex items-center gap-3 p-3 rounded-2xl border cursor-pointer transition-all ${
                     form.paymentMethod === 'card' 
-                      ? 'bg-emerald-950/40 border-emerald-500 text-white' 
-                      : 'bg-das-800 border-white/10 text-slate-300'
+                      ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-slate-900 dark:text-white' 
+                      : 'bg-slate-50 dark:bg-das-800 border-slate-200 dark:border-white/10 text-slate-700 dark:text-slate-300 hover:border-slate-300'
                   }`}>
                     <input
                       type="radio"
@@ -349,10 +349,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       onChange={() => setForm({ ...form, paymentMethod: 'card' })}
                       className="accent-emerald-500"
                     />
-                    <CreditCard className="w-4 h-4 text-blue-400 shrink-0" />
+                    <CreditCard className="w-4 h-4 text-blue-500 dark:text-blue-400 shrink-0" />
                     <div className="flex-1">
-                      <strong className="block text-white">{t.payCardMethod}</strong>
-                      <span className="text-[11px] text-slate-400">
+                      <strong className="block text-slate-900 dark:text-white">{t.payCardMethod}</strong>
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400">
                         {isArabic ? 'فيزا، ماستركارد، مدى (بوابة آمنة مشفرة)' : 'Visa / Mastercard / Debit card'}
                       </span>
                     </div>
@@ -361,11 +361,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
 
               {/* Order Summary Line */}
-              <div className="p-4 rounded-2xl bg-das-850 border border-white/10 flex items-center justify-between text-xs">
+              <div className="p-4 rounded-2xl bg-slate-100 dark:bg-das-850 border border-slate-200 dark:border-white/10 flex items-center justify-between text-xs">
                 <div>
-                  <span className="text-slate-400 block">{isArabic ? 'المبلغ المطلوب سداده:' : 'Total Payable:'}</span>
-                  <div className="text-xl font-black text-white font-mono">
-                    {total.toFixed(3)} <span className="text-xs text-emerald-400 font-bold">{t.fils}</span>
+                  <span className="text-slate-500 dark:text-slate-400 block">{isArabic ? 'المبلغ المطلوب سداده:' : 'Total Payable:'}</span>
+                  <div className="text-xl font-black text-slate-900 dark:text-white font-mono">
+                    {total.toFixed(3)} <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold">{t.fils}</span>
                   </div>
                 </div>
 

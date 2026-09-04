@@ -58,17 +58,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fadeIn">
       
       {/* Modal Card */}
       <div 
-        className="relative w-full max-w-2xl bg-das-900 border border-white/15 rounded-3xl overflow-hidden shadow-2xl animate-scaleUp max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-2xl bg-white dark:bg-das-900 border border-slate-200 dark:border-white/15 rounded-3xl overflow-hidden shadow-2xl animate-scaleUp max-h-[90vh] flex flex-col transition-colors duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 hover:bg-white/20 text-white transition-colors"
+          className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-black/60 dark:hover:bg-white/20 text-slate-700 dark:text-white transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -78,7 +78,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
             
             {/* Image Column */}
-            <div className="sm:col-span-5 aspect-square rounded-2xl overflow-hidden bg-das-800 border border-white/10 relative">
+            <div className="sm:col-span-5 aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-das-800 border border-slate-200 dark:border-white/10 relative">
               <img
                 src={product.image}
                 alt={isArabic ? product.nameAr : product.name}
@@ -94,33 +94,33 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             {/* Info Column */}
             <div className="sm:col-span-7 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">
+                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider">
                   {isArabic ? product.brandAr : product.brand}
                 </span>
 
-                <h2 className="text-xl sm:text-2xl font-black text-white mt-1 mb-2">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white mt-1 mb-2">
                   {isArabic ? product.nameAr : product.name}
                 </h2>
 
-                <div className="flex items-center gap-3 text-xs text-slate-400 mb-4">
-                  <div className="flex items-center gap-1 text-amber-400 font-mono">
+                <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400 mb-4">
+                  <div className="flex items-center gap-1 text-amber-500 dark:text-amber-400 font-mono">
                     <Star className="w-4 h-4 fill-amber-400" />
                     <span className="font-bold">{product.rating}</span>
                   </div>
                   <span>•</span>
                   <span>{product.reviewsCount} {t.ratingReviews}</span>
                   <span>•</span>
-                  <span className="text-emerald-400 font-semibold">{t.inStock}</span>
+                  <span className="text-emerald-700 dark:text-emerald-400 font-semibold">{t.inStock}</span>
                 </div>
 
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {isArabic ? product.descriptionAr : product.description}
                 </p>
               </div>
 
               {/* Packaging Selector */}
               <div className="mt-5">
-                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">
+                <label className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider block mb-2">
                   {isArabic ? 'اختر نوع العبوة' : 'Select Packaging'}
                 </label>
                 <div className="grid grid-cols-2 gap-2">
@@ -128,12 +128,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setPackagingType('single')}
                     className={`p-2.5 rounded-xl border text-xs font-bold flex flex-col items-start transition-all ${
                       packagingType === 'single'
-                        ? 'border-emerald-500 bg-emerald-950/40 text-white shadow-sm'
-                        : 'border-white/10 bg-das-800/60 text-slate-400 hover:text-white'
+                        ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-white shadow-sm'
+                        : 'border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-das-800/60 text-slate-700 dark:text-slate-400 hover:text-black dark:hover:text-white'
                     }`}
                   >
                     <span>{t.singleUnit}</span>
-                    <span className="text-[10px] text-emerald-400 font-mono mt-0.5">
+                    <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-mono mt-0.5">
                       {product.singleVolume}
                     </span>
                   </button>
@@ -142,12 +142,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     onClick={() => setPackagingType('carton')}
                     className={`p-2.5 rounded-xl border text-xs font-bold flex flex-col items-start transition-all ${
                       packagingType === 'carton'
-                        ? 'border-emerald-500 bg-emerald-950/40 text-white shadow-sm'
-                        : 'border-white/10 bg-das-800/60 text-slate-400 hover:text-white'
+                        ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-950 dark:text-white shadow-sm'
+                        : 'border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-das-800/60 text-slate-700 dark:text-slate-400 hover:text-black dark:hover:text-white'
                     }`}
                   >
                     <span>{t.cartonPack}</span>
-                    <span className="text-[10px] text-emerald-400 font-mono mt-0.5">
+                    <span className="text-[10px] text-emerald-700 dark:text-emerald-400 font-mono mt-0.5">
                       {product.cartonLabel}
                     </span>
                   </button>
@@ -158,67 +158,67 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           </div>
 
           {/* Specifications Box */}
-          <div className="p-4 rounded-2xl bg-das-800/60 border border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-das-800/60 border border-slate-200 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
             <div className="flex items-center gap-2.5">
-              <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
+              <MapPin className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div>
-                <span className="text-slate-500 block text-[10px]">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px]">
                   {isArabic ? 'المصدر والتوزيع' : 'Origin & Distribution'}
                 </span>
-                <span className="text-white font-medium">{product.specifications.origin}</span>
+                <span className="text-slate-900 dark:text-white font-medium">{product.specifications.origin}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-2.5">
-              <Package className="w-4 h-4 text-emerald-400 shrink-0" />
+              <Package className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div>
-                <span className="text-slate-500 block text-[10px]">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px]">
                   {isArabic ? 'مواصفات التغليف' : 'Packaging Specs'}
                 </span>
-                <span className="text-white font-medium">{product.specifications.packaging}</span>
+                <span className="text-slate-900 dark:text-white font-medium">{product.specifications.packaging}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-2.5">
-              <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
+              <Clock className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
               <div>
-                <span className="text-slate-500 block text-[10px]">
+                <span className="text-slate-500 dark:text-slate-400 block text-[10px]">
                   {isArabic ? 'فترة الصلاحية' : 'Shelf Life'}
                 </span>
-                <span className="text-white font-medium">{product.specifications.shelfLife}</span>
+                <span className="text-slate-900 dark:text-white font-medium">{product.specifications.shelfLife}</span>
               </div>
             </div>
           </div>
 
           {/* Pricing & Add to Cart Section */}
-          <div className="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div>
-              <span className="text-xs text-slate-400 block mb-0.5">
+              <span className="text-xs text-slate-500 dark:text-slate-400 block mb-0.5">
                 {isArabic ? 'السعر الإجمالي:' : 'Price:'}
               </span>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-3xl font-black text-white font-mono">
+                <span className="text-3xl font-black text-slate-900 dark:text-white font-mono">
                   {(currentPrice * quantity).toFixed(3)}
                 </span>
-                <span className="text-sm font-bold text-emerald-400">{t.fils}</span>
+                <span className="text-sm font-bold text-emerald-600 dark:text-emerald-400">{t.fils}</span>
               </div>
             </div>
 
             <div className="flex items-center gap-3 w-full sm:w-auto">
               {/* Stepper */}
-              <div className="flex items-center rounded-xl bg-das-800 border border-white/15 px-2 py-1">
+              <div className="flex items-center rounded-xl bg-slate-100 dark:bg-das-800 border border-slate-200 dark:border-white/15 px-2 py-1">
                 <button
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="p-1.5 text-slate-400 hover:text-white"
+                  className="p-1.5 text-slate-500 hover:text-black dark:text-slate-400 dark:hover:text-white"
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                <span className="px-3 text-sm font-mono font-bold text-white">
+                <span className="px-3 text-sm font-mono font-bold text-slate-900 dark:text-white">
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity(quantity + 1)}
-                  className="p-1.5 text-slate-400 hover:text-white"
+                  className="p-1.5 text-slate-500 hover:text-black dark:text-slate-400 dark:hover:text-white"
                 >
                   <Plus className="w-4 h-4" />
                 </button>
@@ -251,7 +251,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 href={getWhatsAppProductLink()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 rounded-xl bg-das-800 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition-colors"
+                className="p-3 rounded-xl bg-slate-100 hover:bg-emerald-50 dark:bg-das-800 dark:hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 transition-colors"
                 title={t.whatsappQuickOrder}
               >
                 <MessageCircle className="w-5 h-5" />

@@ -115,14 +115,14 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
         </div>
       ) : (
         /* Empty State */
-        <div className="p-12 text-center rounded-3xl glass-panel border border-white/10 my-8">
-          <div className="w-16 h-16 rounded-2xl bg-das-800 text-slate-400 flex items-center justify-center mx-auto mb-4">
+        <div className="p-12 text-center rounded-3xl bg-white dark:bg-das-850 border border-slate-200 dark:border-white/10 my-8 shadow-lg shadow-slate-200/40 dark:shadow-none">
+          <div className="w-16 h-16 rounded-2xl bg-slate-100 dark:bg-das-800 text-slate-500 dark:text-slate-400 flex items-center justify-center mx-auto mb-4">
             <PackageOpen className="w-8 h-8" />
           </div>
-          <h3 className="text-lg font-bold text-white mb-1">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
             {isArabic ? 'لم يتم العثور على منتجات مطابقة' : 'No matching products found'}
           </h3>
-          <p className="text-sm text-slate-400 max-w-sm mx-auto mb-6">
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm mx-auto mb-6">
             {isArabic 
               ? 'يرجى تجربة البحث باسم آخر أو اختيار فئة مختلفة من القائمة.'
               : 'Try searching with a different term or select another category.'}
@@ -131,7 +131,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
             onClick={() => {
               onSelectCategory('all');
             }}
-            className="px-5 py-2 rounded-xl bg-emerald-500 text-black text-xs font-bold hover:bg-emerald-400 transition-colors"
+            className="px-5 py-2.5 rounded-xl bg-emerald-500 text-black text-xs font-bold hover:bg-emerald-400 transition-colors shadow-md"
           >
             {isArabic ? 'عرض كل المنتجات' : 'View All Products'}
           </button>

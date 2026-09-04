@@ -55,10 +55,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <div className="group relative rounded-2xl glass-panel border border-white/10 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:shadow-emerald-950/40">
+    <div className="group relative rounded-2xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 hover:border-emerald-500/50 dark:hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-sm hover:shadow-xl hover:shadow-emerald-500/10 dark:hover:shadow-emerald-950/40">
       
       {/* Top Media Container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-gradient-to-b from-das-800 to-das-900 flex items-center justify-center p-3">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-gradient-to-b dark:from-das-800 dark:to-das-900 flex items-center justify-center p-3">
         
         {/* Product Image */}
         <img
@@ -76,7 +76,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </span>
           )}
           {product.featured && (
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 backdrop-blur-sm">
+            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border border-amber-300/60 dark:border-amber-500/30 backdrop-blur-sm">
               Popular
             </span>
           )}
@@ -206,7 +206,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               href={getWhatsAppProductLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="col-span-1 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-das-900 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/40 hover:border-emerald-500 transition-colors"
+              className="col-span-1 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-das-900 hover:bg-emerald-50 dark:hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 border border-emerald-500/40 hover:border-emerald-500 transition-colors"
               title={t.whatsappQuickOrder}
             >
               <MessageCircle className="w-4 h-4" />
