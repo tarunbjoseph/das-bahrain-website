@@ -115,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="hero" className="relative min-h-[92vh] overflow-hidden flex flex-col justify-center py-20 lg:py-28 transition-colors duration-300">
+    <section id="hero" className="relative min-h-[85vh] overflow-hidden flex flex-col justify-center py-12 lg:py-16 transition-colors duration-300">
       
       {/* Dynamic Background Backdrop Slideshow with Ken Burns effect */}
       <div className="absolute inset-0 w-full h-full -z-20 overflow-hidden bg-slate-900">
@@ -129,7 +129,7 @@ export const Hero: React.FC<HeroProps> = ({
             <img
               src={bg.url}
               alt={bg.alt}
-              className={`w-full h-full object-cover object-center ${
+              className={`w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.06] ${
                 idx === bgIndex ? 'animate-ken-burns' : ''
               }`}
             />
@@ -137,12 +137,12 @@ export const Hero: React.FC<HeroProps> = ({
         ))}
       </div>
 
-      {/* Atmospheric Nature Tint Gradient Overlay (ensures crisp AAA contrast in both modes) */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/92 via-slate-50/85 to-slate-100/95 dark:from-das-950/92 dark:via-das-900/85 dark:to-das-950/95 backdrop-blur-[3px]" />
+      {/* Atmospheric Transparent Glass Overlay - keeps authentic background visible while text stays sharp */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/70 via-white/55 to-slate-50/75 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90 backdrop-blur-[1px]" />
 
       {/* Subtle Botanical Leaf Glows */}
-      <div className="absolute top-10 left-1/4 w-[600px] h-[400px] bg-leaf-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-leaf-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">

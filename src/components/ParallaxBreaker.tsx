@@ -12,7 +12,7 @@ export const ParallaxBreaker: React.FC<ParallaxBreakerProps> = ({ language, onEx
   const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative w-full overflow-hidden my-16 md:my-24 py-24 md:py-32 bg-slate-900 text-white">
+    <section className="relative w-full overflow-hidden my-4 md:my-6 py-12 md:py-16 bg-slate-900 text-white">
       {/* Background Image with Ambient Parallax Feel */}
       <img
         src="https://alsicolabh.tfwgsite.com/assets/parallax-divider-DCBafX8t.jpg"

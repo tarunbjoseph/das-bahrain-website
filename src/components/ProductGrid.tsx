@@ -113,15 +113,25 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   });
 
   return (
-    <section id="products" className="py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
-      
-      {/* Visual Category Showcase Cards */}
-      <div className="mb-20">
-        <div className="flex items-center justify-between mb-5">
-          <div>
-            <span className="text-xs font-black uppercase tracking-wider text-leaf-600 dark:text-leaf-400">
-              {isArabic ? 'الأقسام الرئيسية المتوفرة' : 'Featured FMCG Departments'}
-            </span>
+    <section id="products" className="relative py-12 md:py-16 overflow-hidden scroll-mt-20">
+      {/* Transparent Ambient Retail & Lifestyle Backdrop */}
+      <div className="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+        <img
+          src="https://alsicolabh.tfwgsite.com/__l5e/assets-v1/ea8d157c-4ce3-4dc1-8850-160122a8abe8/about-lifestyle.jpg"
+          alt="DAS Bahrain Retail Store Ambiance"
+          className="w-full h-full object-cover opacity-20 dark:opacity-10 filter blur-[2px] scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/80 via-slate-50/65 to-slate-50/85 dark:from-das-950/85 dark:via-das-900/75 dark:to-das-950/90 backdrop-blur-[2px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Visual Category Showcase Cards */}
+        <div className="mb-12">
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <span className="text-xs font-black uppercase tracking-wider text-leaf-600 dark:text-leaf-400">
+                {isArabic ? 'الأقسام الرئيسية المتوفرة' : 'Featured FMCG Departments'}
+              </span>
             <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
               {isArabic ? 'تصفح حسب فئة المنتجات' : 'Browse by Core Category'}
             </h3>
@@ -289,9 +299,9 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
         })}
       </div>
 
-      {/* Products Grid */}
+      {/* Products Grid - 3 items per row with generous spacing */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
@@ -329,6 +339,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
         </div>
       )}
 
+      </div>
     </section>
   );
 };

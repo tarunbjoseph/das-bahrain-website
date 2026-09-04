@@ -103,7 +103,7 @@ export const LeadershipSlideshow: React.FC<LeadershipSlideshowProps> = ({ langua
   const activeLeader = leaders[currentSlide];
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden transition-colors duration-300">
+    <section className="py-12 md:py-16 relative overflow-hidden transition-colors duration-300">
       
       {/* Subtle Ambient Background Backdrop with Smooth Blur */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -118,7 +118,7 @@ export const LeadershipSlideshow: React.FC<LeadershipSlideshowProps> = ({ langua
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header with Relaxed Breathing Spacing */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-leaf-100/90 dark:bg-leaf-950/70 border border-leaf-300/60 dark:border-leaf-800 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-[0.2em] mb-5 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-leaf-600" />
             <span>{isArabic ? 'القيادة التنفيذية والإدارة' : 'Executive Leadership & Governance'}</span>

@@ -28,7 +28,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
   const isArabic = language === 'ar';
 
   return (
-    <section id="about" className="py-28 md:py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 md:space-y-32">
+    <section id="about" className="py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 md:space-y-12">
       
       {/* Corporate Profile Card */}
       <div className="rounded-3xl bg-white dark:bg-das-850/80 border border-slate-200 dark:border-white/10 p-8 sm:p-12 relative overflow-hidden shadow-soft transition-colors duration-300">

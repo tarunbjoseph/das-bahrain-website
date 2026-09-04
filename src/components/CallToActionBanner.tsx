@@ -13,7 +13,7 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({ language
   const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative w-full overflow-hidden my-20 md:my-28 py-28 md:py-36 bg-slate-950 text-white">
+    <section className="relative w-full overflow-hidden my-6 md:my-8 py-14 md:py-18 bg-slate-950 text-white">
       {/* Background Image */}
       <img
         src="https://alsicolabh.tfwgsite.com/assets/cta-background-DfvjAj8P.jpg"

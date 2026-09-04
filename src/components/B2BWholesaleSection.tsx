@@ -141,7 +141,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
   };
 
   return (
-    <section id="b2b" className="py-28 md:py-36 bg-slate-100/80 dark:bg-gradient-to-b dark:from-das-950 dark:via-das-900 dark:to-das-950 relative overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="b2b" className="py-12 md:py-16 bg-slate-100/80 dark:bg-gradient-to-b dark:from-das-950 dark:via-das-900 dark:to-das-950 relative overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
       
       {/* Background Ambience */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
@@ -150,7 +150,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-100 dark:bg-leaf-950/70 border border-leaf-300/60 dark:border-leaf-800 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Building2 className="w-4 h-4" />
             <span>{t.b2bBadge}</span>
@@ -166,7 +166,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         </div>
 
         {/* 3 Pillars of Distribution */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
           
           {/* Pillar 1: Van Sales */}
           <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-leaf-500/30 relative overflow-hidden group hover:border-leaf-500 dark:hover:border-leaf-400 transition-all shadow-soft dark:shadow-none">
@@ -282,8 +282,8 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         </div>
 
         {/* Active Van Sales Fleet & Operations Gallery (Visual Fleet Showcase) */}
-        <div className="mb-24 md:mb-32">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div className="mb-12 md:mb-14">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-leaf-600 dark:text-leaf-400 mb-2">
                 <Truck className="w-4 h-4" />
