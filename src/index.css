@@ -3,28 +3,25 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 }
 
-.light {
-  color-scheme: light;
+.dark {
+  color-scheme: dark;
 }
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  background-color: #f8fafc;
+  color: #0f172a;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.dark body, body {
+.dark body {
   background-color: #070a0e;
   color: #f1f5f9;
-}
-
-.light body {
-  background-color: #f8fafc;
-  color: #0f172a;
 }
 
 [dir="rtl"] {

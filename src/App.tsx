@@ -16,13 +16,13 @@ export const App: React.FC = () => {
   // Language State
   const [language, setLanguage] = useState<Language>('en');
 
-  // Theme State (Default dark, toggles to light)
+  // Theme State (Default light, toggles to dark)
   const [theme, setTheme] = useState<Theme>(() => {
     try {
       const saved = localStorage.getItem('das_theme') as Theme;
-      return saved === 'light' ? 'light' : 'dark';
+      return saved === 'dark' ? 'dark' : 'light';
     } catch {
-      return 'dark';
+      return 'light';
     }
   });
 
