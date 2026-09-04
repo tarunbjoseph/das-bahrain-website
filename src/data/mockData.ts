@@ -214,7 +214,7 @@ export const PRODUCTS: Product[] = [
     cartonPrice: 1.500,
     cartonUnits: 24,
     cartonLabel: 'Carton (24 × 500ml Bottles)',
-    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80',
+    image: 'https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80',
     tag: 'Daily Essential',
     tagAr: 'ضروريات يومية',
     rating: 4.9,

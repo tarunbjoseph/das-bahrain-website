@@ -66,6 +66,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           alt={isArabic ? product.nameAr : product.name}
           className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1546173159-315724a31d9b?auto=format&fit=crop&w=600&q=80';
+          }}
         />
 
         {/* Badges Overlay */}

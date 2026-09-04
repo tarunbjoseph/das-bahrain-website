@@ -51,6 +51,50 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
     { id: 'Hygiene & Consumables', labelEn: 'Sanitizers & Non-Food Consumables', labelAr: 'المنظفات والمستهلكات غير الغذائية' },
   ];
 
+  // Van Sales fleet & logistics gallery images (authentic FMCG media from reference site)
+  const fleetGallery = [
+    {
+      id: 'van-routes',
+      image: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-3-CAIUPCbG.jpg',
+      titleEn: 'Daily Neighborhood Van Sales',
+      titleAr: 'فان سيلز يومي نشط للمحلات',
+      descEn: 'Equipped delivery vans providing small-batch, daily replenishment directly to cold store doorsteps.',
+      descAr: 'فانات يومية تجوب كافة الأحياء لتزويد البرادات والبقالات بكميات مرنة حسب الطلب.',
+      badgeEn: 'DSD Route Vans',
+      badgeAr: 'أسطول الفان'
+    },
+    {
+      id: 'central-warehouse',
+      image: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-1-HGdNez6Y.jpg',
+      titleEn: 'Central Logistics Hub (Hidd)',
+      titleAr: 'مستودع التوزيع المركزي (الحد)',
+      descEn: 'Modern temperature-controlled warehouse ensuring rapid pallet dispatches and stock freshness.',
+      descAr: 'مستودعات مكيفة ومبردة بأحدث التقنيات لضمان وفرة المخزون وسرعة الشحن للمتاجر.',
+      badgeEn: 'Central Hub',
+      badgeAr: 'المركز الرئيسي'
+    },
+    {
+      id: 'retail-coolers',
+      image: 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-2-1DU4nM6X.jpg',
+      titleEn: 'Branded Displays & Coolers',
+      titleAr: 'ثلاجات وستاندات عرض مجانية',
+      descEn: 'Free Alsi Cola floor display stands and branded drink coolers supplied to partner stores.',
+      descAr: 'نوفر للمحلات والبرادات الشريكة ثلاجات وستاندات عرض مجانية لزيادة مبيعات المشروبات.',
+      badgeEn: 'Store Displays',
+      badgeAr: 'تجهيزات مجانية'
+    },
+    {
+      id: 'rapid-transport',
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+      titleEn: 'Bulk Pallet & Container Supply',
+      titleAr: 'شحن الحاويات والطبليات',
+      descEn: 'High-volume logistics supply for hypermarkets, catering companies, and wholesale contracts.',
+      descAr: 'توريد أحجام تجارية كبيرة بالطبليات لسلاسل الهايبرماركت والفنادق وشركات التموين.',
+      badgeEn: 'Wholesale Fleet',
+      badgeAr: 'نقل الجملة'
+    }
+  ];
+
   const handleCheckboxToggle = (interestId: string) => {
     setFormData((prev) => {
       const exists = prev.productInterests.includes(interestId);
@@ -97,7 +141,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
   };
 
   return (
-    <section id="b2b" className="py-20 bg-slate-100/80 dark:bg-gradient-to-b dark:from-das-950 dark:via-das-900 dark:to-das-950 relative overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
+    <section id="b2b" className="py-28 md:py-36 bg-slate-100/80 dark:bg-gradient-to-b dark:from-das-950 dark:via-das-900 dark:to-das-950 relative overflow-hidden border-y border-slate-200 dark:border-white/10 transition-colors duration-300">
       
       {/* Background Ambience */}
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-emerald-500/5 blur-[140px] rounded-full pointer-events-none" />
@@ -106,7 +150,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-100 dark:bg-leaf-950/70 border border-leaf-300/60 dark:border-leaf-800 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-4">
             <Building2 className="w-4 h-4" />
             <span>{t.b2bBadge}</span>
@@ -122,7 +166,7 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
         </div>
 
         {/* 3 Pillars of Distribution */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20 md:mb-24">
           
           {/* Pillar 1: Van Sales */}
           <div className="p-8 rounded-3xl bg-white dark:bg-das-850/80 border border-leaf-500/30 relative overflow-hidden group hover:border-leaf-500 dark:hover:border-leaf-400 transition-all shadow-soft dark:shadow-none">
@@ -237,9 +281,73 @@ export const B2BWholesaleSection: React.FC<B2BWholesaleSectionProps> = ({ langua
 
         </div>
 
+        {/* Active Van Sales Fleet & Operations Gallery (Visual Fleet Showcase) */}
+        <div className="mb-24 md:mb-32">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-leaf-600 dark:text-leaf-400 mb-2">
+                <Truck className="w-4 h-4" />
+                <span>{isArabic ? 'عمليات الأسطول والتوزيع الميداني' : 'Active Fleet & Direct Logistics in Action'}</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                {isArabic ? 'أسطول فان سيلز يغطي كافة مناطق البحرين يومياً' : 'Bahrain Van Sales Fleet & Fast Replenishment'}
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 max-w-2xl leading-relaxed">
+                {isArabic
+                  ? 'أسطول سيارات فان مجهزة ومبردة تزور مئات البرادات والبقالات ومحلات السوبرماركت كل صباح لتأمين احتياجات السوق وتجديد الرفوف فوراً.'
+                  : 'Commercial distribution vans servicing neighborhood cold stores, hypermarkets, and institutional accounts across Bahrain every morning.'}
+              </p>
+            </div>
+
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-das-850 border border-slate-200 dark:border-white/10 text-xs font-mono font-bold text-slate-700 dark:text-slate-300 shadow-sm shrink-0">
+              <span className="w-2 h-2 rounded-full bg-leaf-500 animate-pulse" />
+              <span>{isArabic ? 'تغطية شاملة للمحافظات الـ 5' : 'All 5 Governorates Covered'}</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {fleetGallery.map((item) => (
+              <div
+                key={item.id}
+                className="group relative rounded-2xl overflow-hidden bg-white dark:bg-das-850/80 border border-slate-200/90 dark:border-white/10 hover:border-leaf-500/50 shadow-soft hover:shadow-leaf transition-all duration-300 flex flex-col"
+              >
+                {/* Photo container */}
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-das-800">
+                  <img
+                    src={item.image}
+                    alt={isArabic ? item.titleAr : item.titleEn}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = 'https://alsicolabh.tfwgsite.com/assets/gardner-hero-3-CAIUPCbG.jpg';
+                    }}
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md text-white border border-white/20">
+                      {isArabic ? item.badgeAr : item.badgeEn}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-leaf-600 dark:group-hover:text-leaf-400 transition-colors mb-1.5">
+                      {isArabic ? item.titleAr : item.titleEn}
+                    </h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {isArabic ? item.descAr : item.descEn}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Interactive B2B Inquiry & Van Sales Booking Form */}
-        <div className="rounded-3xl bg-white dark:bg-das-850/90 border border-slate-200 dark:border-white/15 p-6 sm:p-10 lg:p-12 relative shadow-2xl shadow-slate-200/50 dark:shadow-none">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="rounded-3xl bg-white dark:bg-das-850/90 border border-slate-200 dark:border-white/15 p-6 sm:p-10 lg:p-14 relative shadow-elevated">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
             
             {/* Left Info Column */}
             <div className="lg:col-span-5 flex flex-col justify-between">

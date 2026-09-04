@@ -6,6 +6,9 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { B2BWholesaleSection } from './components/B2BWholesaleSection';
+import { ParallaxBreaker } from './components/ParallaxBreaker';
+import { LeadershipSlideshow } from './components/LeadershipSlideshow';
+import { CallToActionBanner } from './components/CallToActionBanner';
 import { AboutContact } from './components/AboutContact';
 import { AIAssistant } from './components/AIAssistant';
 import { Footer } from './components/Footer';
@@ -175,6 +178,12 @@ export const App: React.FC = () => {
           onQuickView={(prod) => setQuickViewProduct(prod)}
         />
 
+        {/* Dynamic Parallax Breaker with Alsi Cola Supply Chain Narrative */}
+        <ParallaxBreaker
+          language={language}
+          onExploreProducts={() => handleNavigateSection('products')}
+        />
+
         {/* Product Catalogue Section with in-page Search & Category Showcase */}
         <ProductGrid
           products={PRODUCTS}
@@ -187,11 +196,20 @@ export const App: React.FC = () => {
           onQuickView={(prod) => setQuickViewProduct(prod)}
         />
 
-        {/* Dedicated B2B & Van Sales Section */}
+        {/* Dedicated B2B & Van Sales Section with Fleet Gallery */}
         <B2BWholesaleSection language={language} />
+
+        {/* Transparent Leadership Slideshow (Bejoy Joseph & Operational Directors) */}
+        <LeadershipSlideshow language={language} />
 
         {/* About DAS Bahrain & Contact Hub */}
         <AboutContact language={language} />
+
+        {/* High-Impact Call to Action Banner (Van Sales & Direct Distribution) */}
+        <CallToActionBanner
+          language={language}
+          onExploreProducts={() => handleNavigateSection('products')}
+        />
       </main>
 
       {/* Corporate Footer */}

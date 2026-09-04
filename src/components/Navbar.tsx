@@ -263,6 +263,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                           src={p.image}
                           alt={isRtl ? p.nameAr : p.name}
                           className="w-12 h-12 rounded-xl object-cover bg-slate-100 dark:bg-das-800 shrink-0 border border-slate-200 dark:border-white/10"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1546173159-315724a31d9b?auto=format&fit=crop&w=600&q=80';
+                          }}
                         />
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-1.5">

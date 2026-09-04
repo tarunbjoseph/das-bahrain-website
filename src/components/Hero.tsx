@@ -115,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="hero" className="relative min-h-[92vh] overflow-hidden flex flex-col justify-center py-12 lg:py-20 transition-colors duration-300">
+    <section id="hero" className="relative min-h-[92vh] overflow-hidden flex flex-col justify-center py-20 lg:py-28 transition-colors duration-300">
       
       {/* Dynamic Background Backdrop Slideshow with Ken Burns effect */}
       <div className="absolute inset-0 w-full h-full -z-20 overflow-hidden bg-slate-900">

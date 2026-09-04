@@ -113,10 +113,10 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
   });
 
   return (
-    <section id="products" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
+    <section id="products" className="py-24 md:py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28">
       
       {/* Visual Category Showcase Cards */}
-      <div className="mb-14">
+      <div className="mb-20">
         <div className="flex items-center justify-between mb-5">
           <div>
             <span className="text-xs font-black uppercase tracking-wider text-leaf-600 dark:text-leaf-400">
@@ -291,7 +291,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
 
       {/* Products Grid */}
       {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}

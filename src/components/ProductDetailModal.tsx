@@ -83,6 +83,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 src={product.image}
                 alt={isArabic ? product.nameAr : product.name}
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1546173159-315724a31d9b?auto=format&fit=crop&w=600&q=80';
+                }}
               />
               {product.tag && (
                 <div className="absolute top-3 left-3 bg-leaf-600 text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full shadow">
