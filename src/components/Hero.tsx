@@ -151,27 +151,27 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
-          {/* Left Column: Headline, Trust Pill & Action Buttons inside Translucent Card */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right p-6 sm:p-8 lg:p-10 rounded-3xl bg-white/70 dark:bg-das-900/70 backdrop-blur-md border border-white/60 dark:border-white/10 shadow-elevated">
+          {/* Left Column: Headline, Trust Pill & Action Buttons without enclosing box */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right py-2 lg:pr-4 rtl:lg:pr-0 rtl:lg:pl-4">
             
             {/* Natural Leaf Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-50 dark:bg-leaf-950/80 border border-leaf-300 dark:border-leaf-700/60 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-50/90 dark:bg-leaf-950/80 border border-leaf-300 dark:border-leaf-700/60 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-leaf-500 animate-pulse" />
               <span>{isRtl ? 'مملكة البحرين • الوكيل المعتمد لمشروبات الساي كولا' : 'Kingdom of Bahrain • Licensed Alsi Cola Distributor'}</span>
             </div>
 
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-6 text-slate-900 dark:text-white">
-              <span className="block text-slate-700 dark:text-slate-300 font-extrabold text-2xl sm:text-3xl mb-1">
+              <span className="block text-slate-800 dark:text-slate-200 font-extrabold text-2xl sm:text-3xl mb-1.5 drop-shadow-sm">
                 {t.heroTitlePrefix}
               </span>
-              <span className="bg-gradient-to-r from-slate-900 via-leaf-800 to-leaf-600 dark:from-white dark:via-leaf-200 dark:to-leaf-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-slate-950 via-leaf-800 to-leaf-600 dark:from-white dark:via-leaf-200 dark:to-leaf-400 bg-clip-text text-transparent drop-shadow-sm">
                 {t.heroTitleHighlight}
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 max-w-2xl leading-relaxed mb-8 font-normal">
               {t.heroSubTitle}
             </p>
 
@@ -187,7 +187,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onExploreB2B}
-                className="flex items-center justify-center gap-2.5 bg-white dark:bg-das-850 hover:bg-slate-100 dark:hover:bg-das-800 border border-slate-300 dark:border-white/15 text-slate-900 dark:text-white font-bold px-7 py-3.5 rounded-2xl shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
+                className="flex items-center justify-center gap-2.5 bg-white/80 dark:bg-das-850/80 backdrop-blur-md hover:bg-white dark:hover:bg-das-800 border border-slate-300/80 dark:border-white/15 text-slate-900 dark:text-white font-bold px-7 py-3.5 rounded-2xl shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
               >
                 <Store className="w-4 h-4 text-leaf-600 dark:text-leaf-400" />
                 <span>{t.heroCtaB2b}</span>
@@ -195,7 +195,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Realistic Trust Checkmarks with Nature Green Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-200 dark:border-white/10 text-xs text-slate-700 dark:text-slate-300">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-300/70 dark:border-white/10 text-xs text-slate-800 dark:text-slate-200">
               <div className="flex items-center gap-2.5">
                 <div className="w-6 h-6 rounded-full bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
@@ -226,8 +226,8 @@ export const Hero: React.FC<HeroProps> = ({
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Main Showcase Interactive Card */}
-              <div className="relative rounded-3xl p-6 sm:p-7 bg-white dark:bg-das-850/95 border border-slate-200 dark:border-white/15 overflow-hidden shadow-elevated transition-all">
+              {/* Main Showcase Interactive Card - Transparent Glass Panel */}
+              <div className="relative rounded-3xl p-6 sm:p-7 bg-white/40 dark:bg-das-900/40 backdrop-blur-xl border border-white/50 dark:border-white/10 overflow-hidden shadow-soft transition-all">
                 
                 {/* Visual Header with Slide Navigation */}
                 <div className="flex items-center justify-between mb-4">
@@ -242,17 +242,17 @@ export const Hero: React.FC<HeroProps> = ({
                   <div className="flex items-center gap-1.5">
                     <button
                       onClick={handlePrevSlide}
-                      className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-das-800 dark:hover:bg-das-700 text-slate-700 dark:text-white flex items-center justify-center transition-colors border border-slate-200 dark:border-white/10"
+                      className="w-7 h-7 rounded-full bg-white/70 hover:bg-white dark:bg-das-800 dark:hover:bg-das-700 text-slate-700 dark:text-white flex items-center justify-center transition-colors border border-slate-200 dark:border-white/10 shadow-sm"
                       aria-label="Previous product"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
-                    <span className="text-[11px] font-mono font-bold text-slate-500 dark:text-slate-400 px-1">
+                    <span className="text-[11px] font-mono font-bold text-slate-600 dark:text-slate-300 px-1">
                       {productSlideIndex + 1}/{topProducts.length}
                     </span>
                     <button
                       onClick={handleNextSlide}
-                      className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-das-800 dark:hover:bg-das-700 text-slate-700 dark:text-white flex items-center justify-center transition-colors border border-slate-200 dark:border-white/10"
+                      className="w-7 h-7 rounded-full bg-white/70 hover:bg-white dark:bg-das-800 dark:hover:bg-das-700 text-slate-700 dark:text-white flex items-center justify-center transition-colors border border-slate-200 dark:border-white/10 shadow-sm"
                       aria-label="Next product"
                     >
                       <ChevronRight className="w-4 h-4" />
@@ -261,11 +261,11 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 {/* Product Image Stage */}
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100 dark:bg-gradient-to-b dark:from-das-800 dark:to-das-900 border border-slate-200 dark:border-white/10 group flex items-center justify-center p-2">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-gradient-to-b from-slate-200/50 to-slate-300/40 dark:from-das-800/80 dark:to-das-950/90 border border-white/40 dark:border-white/10 group flex items-center justify-center p-3">
                   <img
                     src={currentProduct.image}
                     alt={isRtl ? currentProduct.nameAr : currentProduct.name}
-                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 filter drop-shadow-lg"
+                    className="h-full w-auto max-h-[90%] object-contain transition-transform duration-700 group-hover:scale-105 filter drop-shadow-2xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
                   
@@ -293,7 +293,7 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 {/* Packaging Switcher */}
-                <div className="p-1 rounded-xl bg-slate-100 dark:bg-das-900 border border-slate-200 dark:border-white/10 flex items-center gap-1 text-xs mb-4">
+                <div className="p-1 rounded-xl bg-white/60 dark:bg-das-950/60 backdrop-blur-sm border border-white/40 dark:border-white/10 flex items-center gap-1 text-xs mb-4">
                   <button
                     onClick={() => setPackagingType('single')}
                     className={`flex-1 py-1.5 px-2 rounded-lg font-bold text-xs transition-all ${
@@ -320,9 +320,9 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 {/* Price and Cart Action Bar */}
-                <div className="flex items-center justify-between gap-3 pt-2 border-t border-slate-100 dark:border-white/10">
+                <div className="flex items-center justify-between gap-3 pt-2 border-t border-white/40 dark:border-white/10">
                   <div>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-400 block">
+                    <span className="text-[10px] text-slate-600 dark:text-slate-400 block">
                       {isRtl ? 'السعر الرسمي المعتمد:' : 'Official Price:'}
                     </span>
                     <div className="flex items-baseline gap-1">
@@ -361,7 +361,7 @@ export const Hero: React.FC<HeroProps> = ({
                       href={getWhatsAppProductLink()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2.5 rounded-xl bg-slate-100 hover:bg-leaf-50 dark:bg-das-900 dark:hover:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-slate-200 dark:border-white/10 hover:border-leaf-500 transition-colors"
+                      className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-das-800 dark:hover:bg-das-700 text-leaf-700 dark:text-leaf-400 border border-slate-200 dark:border-white/10 transition-colors"
                       title={t.whatsappQuickOrder}
                     >
                       <MessageCircle className="w-4 h-4" />
@@ -369,22 +369,21 @@ export const Hero: React.FC<HeroProps> = ({
                   </div>
                 </div>
 
-                {/* Slideshow Pagination Dots */}
-                <div className="flex items-center justify-center gap-1.5 mt-4 pt-3 border-t border-slate-100 dark:border-white/5">
+                {/* Carousel Pagination Dots */}
+                <div className="flex items-center justify-center gap-1.5 mt-4">
                   {topProducts.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setProductSlideIndex(idx)}
                       className={`h-1.5 rounded-full transition-all ${
-                        idx === productSlideIndex 
-                          ? 'w-6 bg-leaf-600 dark:bg-leaf-400' 
-                          : 'w-2 bg-slate-300 dark:bg-white/20 hover:bg-slate-400'
+                        productSlideIndex === idx
+                          ? 'w-6 bg-leaf-600'
+                          : 'w-1.5 bg-slate-300 dark:bg-white/20 hover:bg-slate-400'
                       }`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
                   ))}
                 </div>
-
               </div>
 
               {/* Decorative Nature Glow Behind Card */}
@@ -394,8 +393,8 @@ export const Hero: React.FC<HeroProps> = ({
 
         </div>
 
-        {/* Bottom Metrics & Van Sales Live Banner with Realistic Badges */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl bg-white/90 dark:bg-das-850/90 border border-slate-200/80 dark:border-white/10 shadow-soft backdrop-blur-md">
+        {/* Bottom Metrics & Van Sales Live Banner with Transparent Glass Panel */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl bg-white/40 dark:bg-das-900/40 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-soft">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-700/50 flex items-center justify-center shrink-0 shadow-sm">
               <Truck className="w-6 h-6" />

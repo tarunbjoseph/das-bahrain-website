@@ -95,11 +95,11 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
 
           {/* Right Visual / Emblem Card */}
           <div className="lg:col-span-5 flex flex-col items-center justify-center p-8 rounded-3xl bg-gradient-to-b from-slate-100 to-slate-200/80 dark:from-das-800 dark:to-das-900 border border-slate-200 dark:border-white/10 text-center">
-            <div className="relative w-40 h-40 rounded-full bg-white dark:bg-black p-2 border-4 border-leaf-500/40 shadow-xl mb-6 flex items-center justify-center shrink-0">
+            <div className="relative w-40 h-40 rounded-full overflow-hidden bg-black p-1 border-4 border-leaf-500/40 shadow-xl mb-6 flex items-center justify-center shrink-0">
               <img 
                 src={logoImg} 
                 alt="DAS Bahrain Logo" 
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover rounded-full"
               />
             </div>
 

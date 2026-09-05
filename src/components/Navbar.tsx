@@ -188,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-1.5">
                 <span className="font-black text-xl tracking-tight text-slate-900 dark:text-white group-hover:text-leaf-600 transition-colors">
                   DAS <span className="text-leaf-600 dark:text-leaf-400">BAHRAIN</span>
@@ -197,7 +197,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                   Licensed
                 </span>
               </div>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate max-w-[140px] xs:max-w-[200px] sm:max-w-none">
                 {language === 'ar' ? 'دار البابا سلام • موزع الساي كولا المعتمد' : 'Dar Al Baba Salam • Featuring Alsi Cola'}
               </span>
             </div>
@@ -262,9 +262,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                         <img
                           src={p.image}
                           alt={isRtl ? p.nameAr : p.name}
-                          className="w-12 h-12 rounded-xl object-cover bg-slate-100 dark:bg-das-800 shrink-0 border border-slate-200 dark:border-white/10"
+                          className="w-12 h-12 rounded-xl object-contain p-1 bg-slate-100 dark:bg-das-800 shrink-0 border border-slate-200 dark:border-white/10"
                           onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1546173159-315724a31d9b?auto=format&fit=crop&w=600&q=80';
+                            (e.target as HTMLImageElement).src = 'https://alsicola.com/wp-content/uploads/2023/12/alsi-cola-soft-drink.png';
                           }}
                         />
                         <div className="flex-1 min-w-0">
@@ -476,7 +476,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                     }}
                     className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-das-800 cursor-pointer text-xs"
                   >
-                    <img src={p.image} alt={p.name} className="w-9 h-9 rounded-lg object-cover" />
+                    <img 
+                      src={p.image} 
+                      alt={p.name} 
+                      className="w-9 h-9 rounded-lg object-contain p-0.5 bg-slate-100 dark:bg-das-800 shrink-0 border border-slate-200 dark:border-white/10" 
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = 'https://alsicola.com/wp-content/uploads/2023/12/alsi-cola-soft-drink.png';
+                      }}
+                    />
                     <div className="flex-1 min-w-0">
                       <h5 className="font-bold text-slate-900 dark:text-white truncate">{isRtl ? p.nameAr : p.name}</h5>
                       <span className="text-[10px] text-leaf-600 font-mono font-bold">{p.singlePrice.toFixed(3)} BHD</span>
@@ -499,7 +506,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Drawer Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden mt-3 pt-3 border-t border-slate-200 dark:border-white/10 space-y-2 pb-2 animate-fadeIn">
+          <div className="lg:hidden mt-3 pt-3 border-t border-slate-200 dark:border-white/10 space-y-2 pb-2 animate-fadeIn w-full max-w-full overflow-hidden">
             <button 
               onClick={() => handleNavClick('products')}
               className="w-full text-left rtl:text-right px-3 py-2 text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg"
@@ -511,10 +518,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="w-full text-left rtl:text-right px-3 py-2 text-sm font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 rounded-lg flex items-center justify-between"
             >
               <span className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-leaf-600" />
+                <Building2 className="w-4 h-4 text-leaf-600 shrink-0" />
                 <span>{t.b2bWholesale}</span>
               </span>
-              <span className="text-[10px] bg-leaf-100 text-leaf-800 dark:bg-leaf-950 dark:text-leaf-300 px-2 py-0.5 rounded font-semibold border border-leaf-500/20">Van Sales</span>
+              <span className="text-[10px] bg-leaf-100 text-leaf-800 dark:bg-leaf-950 dark:text-leaf-300 px-2 py-0.5 rounded font-semibold border border-leaf-500/20 shrink-0">Van Sales</span>
             </button>
             <button 
               onClick={() => handleNavClick('about')}
@@ -528,15 +535,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               {t.contact}
             </button>
-            <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex flex-col gap-2">
+            <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex flex-col gap-2 w-full max-w-full">
               <a 
                 href={`https://wa.me/${COMPANY_INFO.centralSalesWhatsApp}?text=Hello%20Central%20Sales%20DAS%20Bahrain`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-leaf-500/10 border border-leaf-500/30 text-leaf-700 dark:text-leaf-400 text-xs font-bold"
+                className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-leaf-500/10 border border-leaf-500/30 text-leaf-700 dark:text-leaf-400 text-xs font-bold w-full max-w-full"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>Central Sales WhatsApp: {COMPANY_INFO.centralSalesDivision}</span>
+                <MessageCircle className="w-4 h-4 shrink-0" />
+                <span className="truncate text-[11px] sm:text-xs">
+                  {isRtl ? 'واتساب المبيعات المركزية' : 'Central Sales WhatsApp'}: <span className="font-mono">{COMPANY_INFO.centralSalesDivision}</span>
+                </span>
               </a>
             </div>
           </div>

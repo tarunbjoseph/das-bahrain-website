@@ -148,7 +148,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-slate-50 dark:bg-[#070a0e] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-300 ${language === 'ar' ? 'font-arabic' : ''}`}>
+    <div className={`min-h-screen w-full max-w-full overflow-x-hidden bg-slate-50 dark:bg-[#070a0e] text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-300 ${language === 'ar' ? 'font-arabic' : ''}`}>
       
       {/* Sticky Top Navigation */}
       <Navbar
