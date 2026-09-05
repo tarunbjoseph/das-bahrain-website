@@ -55,10 +55,21 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [isSearchDropdownOpen, setIsSearchDropdownOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
   const t = translations[language];
   const isRtl = language === 'ar';
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
+
+  // Track scroll position for dynamic logo zoom in/out interaction matching reference site
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Filter products for instant dropdown
   const matchedProducts = searchQuery.trim()
@@ -172,32 +183,48 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="glass-panel border-b border-slate-200/80 dark:border-white/10 px-3 sm:px-4 lg:px-8 py-2.5 sm:py-3 transition-all">
+      {/* Main Navbar with Scroll-Responsive Height and Glass Transition */}
+      <nav className={`glass-panel border-b border-slate-200/80 dark:border-white/10 px-3 sm:px-4 lg:px-8 transition-all duration-300 ${
+        isScrolled 
+          ? 'py-1.5 sm:py-2 shadow-md' 
+          : 'py-2.5 sm:py-3.5 lg:py-4'
+      }`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Logo & Brand */}
+          {/* Logo & Brand with Scroll Zoom In/Out Interaction */}
           <div 
             onClick={() => handleNavClick('hero')} 
-            className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink min-w-0"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink min-w-0 transition-transform duration-300 ease-out origin-left rtl:origin-right transform-gpu"
           >
-            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-black p-0.5 border-2 border-leaf-500/80 shadow-md flex items-center justify-center shrink-0">
+            <div className={`relative rounded-full overflow-hidden bg-black p-0.5 border-2 border-leaf-500/80 shadow-md flex items-center justify-center shrink-0 transition-all duration-300 ease-out ${
+              isScrolled 
+                ? 'w-8 h-8 sm:w-9 sm:h-9' 
+                : 'w-11 h-11 sm:w-13 sm:h-13 md:w-14 md:h-14 shadow-lg ring-2 ring-leaf-500/30'
+            }`}>
               <img 
                 src={logoImg} 
                 alt="DAS Bahrain Logo" 
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className="flex flex-col min-w-0">
-              <div className="flex items-center gap-1.5">
-                <span className="font-black text-base sm:text-xl tracking-tight text-slate-900 dark:text-white group-hover:text-leaf-600 transition-colors whitespace-nowrap">
+            <div className="flex flex-col min-w-0 justify-center transition-all duration-300">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className={`font-black tracking-tight text-slate-900 dark:text-white group-hover:text-leaf-600 transition-all duration-300 whitespace-nowrap ${
+                  isScrolled 
+                    ? 'text-sm sm:text-lg' 
+                    : 'text-base sm:text-xl md:text-2xl'
+                }`}>
                   DAS <span className="text-leaf-600 dark:text-leaf-400">BAHRAIN</span>
                 </span>
-                <span className="text-[10px] bg-leaf-100 dark:bg-leaf-950 text-leaf-800 dark:text-leaf-300 border border-leaf-500/30 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider hidden md:inline-block">
+                <span className={`text-[10px] bg-leaf-100 dark:bg-leaf-950 text-leaf-800 dark:text-leaf-300 border border-leaf-500/30 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider hidden md:inline-block transition-all duration-300 ${
+                  isScrolled ? 'scale-90 opacity-80' : 'scale-100'
+                }`}>
                   Licensed
                 </span>
               </div>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate hidden sm:block">
+              <span className={`text-slate-500 dark:text-slate-400 font-medium truncate hidden sm:block transition-all duration-300 ${
+                isScrolled ? 'text-[11px] max-h-4 opacity-75' : 'text-xs max-h-6'
+              }`}>
                 {language === 'ar' ? 'دار البابا سلام • موزع الساي كولا المعتمد' : 'Dar Al Baba Salam • Featuring Alsi Cola'}
               </span>
             </div>

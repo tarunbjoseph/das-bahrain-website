@@ -12,7 +12,7 @@ export const ParallaxBreaker: React.FC<ParallaxBreakerProps> = ({ language, onEx
   const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative w-full overflow-hidden py-16 md:py-24 bg-slate-50 dark:bg-[#070a0e] text-white transition-colors duration-300">
+    <section className="relative w-full overflow-hidden py-16 md:py-24 bg-black text-white transition-colors duration-300">
       {/* Background Image with Alsi Cola Can - Bright & Vividly Visible */}
       <img
         src="https://alsicolabh.tfwgsite.com/assets/parallax-divider-DCBafX8t.jpg"
@@ -24,11 +24,11 @@ export const ParallaxBreaker: React.FC<ParallaxBreakerProps> = ({ language, onEx
       {/* Subtle Transparent Overlay - Keeps Center Text Legible While Cans Stay Bright */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/45 to-black/60 rtl:from-black/60 rtl:via-black/45 rtl:to-black/40" />
 
-      {/* Top Seamless Blending Gradient - smooth melt with the section above */}
-      <div className="absolute top-0 inset-x-0 h-28 sm:h-36 bg-gradient-to-b from-slate-50 via-slate-50/70 to-transparent dark:from-[#070a0e] dark:via-[#070a0e]/70 dark:to-transparent z-10 pointer-events-none" />
+      {/* Top Seamless Blending Gradient - smooth dark melt from Hero above (removes white horizontal band) */}
+      <div className="absolute top-0 inset-x-0 h-16 sm:h-20 bg-gradient-to-b from-black/60 via-black/20 to-transparent z-10 pointer-events-none" />
 
-      {/* Bottom Seamless Blending Gradient - smooth melt with ProductGrid below */}
-      <div className="absolute bottom-0 inset-x-0 h-28 sm:h-36 bg-gradient-to-t from-slate-50 via-slate-50/70 to-transparent dark:from-[#070a0e] dark:via-[#070a0e]/70 dark:to-transparent z-10 pointer-events-none" />
+      {/* Bottom Seamless Blending Gradient - gentle melt with ProductGrid below */}
+      <div className="absolute bottom-0 inset-x-0 h-20 sm:h-24 bg-gradient-to-t from-slate-50/90 dark:from-[#070a0e] via-slate-50/30 dark:via-[#070a0e]/30 to-transparent z-10 pointer-events-none" />
 
       {/* Content Container - Direct on image with high legibility */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-6">

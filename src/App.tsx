@@ -168,7 +168,7 @@ export const App: React.FC = () => {
       />
 
       {/* Main Content Sections */}
-      <main className="flex-1 overflow-x-clip">
+      <main className="flex-1 overflow-x-hidden w-full max-w-full">
         {/* Hero Section with Live Backdrop Slideshow and Top Products Carousel */}
         <Hero
           language={language}

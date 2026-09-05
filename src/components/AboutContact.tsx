@@ -99,7 +99,7 @@ export const AboutContact: React.FC<AboutContactProps> = ({ language }) => {
               <img 
                 src={logoImg} 
                 alt="DAS Bahrain Logo" 
-                className="w-[68%] h-[68%] object-contain"
+                className="w-[80%] h-[80%] object-contain select-none"
               />
             </div>
 

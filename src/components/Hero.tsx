@@ -119,7 +119,10 @@ export const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="hero" className="relative pt-6 sm:pt-10 md:pt-14 pb-16 sm:pb-24 overflow-hidden transition-colors duration-300">
+    <section 
+      id="hero" 
+      className="relative min-h-[92vh] sm:min-h-[95vh] lg:min-h-screen flex flex-col justify-between pt-6 sm:pt-10 md:pt-12 pb-8 sm:pb-12 overflow-hidden transition-colors duration-300"
+    >
       
       {/* Dynamic Background Slideshow with Authentic Bahrain Distributor Operations */}
       <div className="absolute inset-0 z-0">
@@ -147,7 +150,7 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-leaf-500/10 blur-[130px] rounded-full pointer-events-none z-10" />
       <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-amber-500/10 blur-[140px] rounded-full pointer-events-none z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 flex-1 flex flex-col justify-center my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 xl:gap-16 items-center">
           
           {/* Left Column: Headline, Trust Pill & Action Buttons in Transparent Glass Panel */}
@@ -393,7 +396,7 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Bottom Metrics & Van Sales Live Banner with Transparent Glass Panel */}
-        <div className="mt-16 sm:mt-20 lg:mt-24 grid grid-cols-1 md:grid-cols-3 gap-6 p-6 sm:p-8 rounded-3xl bg-white/40 dark:bg-das-900/40 backdrop-blur-md border border-white/50 dark:border-white/10 shadow-soft">
+        <div className="mt-8 sm:mt-12 lg:mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 p-6 sm:p-8 rounded-3xl bg-white/40 dark:bg-das-900/40 backdrop-blur-md border border-white/50 dark:border-white/10 shadow-soft">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-700/50 flex items-center justify-center shrink-0 shadow-sm">
               <Truck className="w-6 h-6" />
@@ -426,6 +429,9 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
       </div>
+
+      {/* Subtle Bottom Vignette Transition to Blend Smoothly with Parallax Breaker */}
+      <div className="absolute bottom-0 inset-x-0 h-20 sm:h-28 bg-gradient-to-b from-transparent to-black/50 pointer-events-none z-10" />
     </section>
   );
 };
