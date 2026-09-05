@@ -102,7 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ language, onNavigateSection }) =
               <li>
                 <button 
                   onClick={() => onNavigateSection('b2b')} 
-                  className="hover:text-leaf-400 transition-colors text-leaf-400 font-bold"
+                  className="hover:text-leaf-400 transition-colors"
                 >
                   {t.b2bWholesale}
                 </button>

@@ -151,18 +151,18 @@ export const Hero: React.FC<HeroProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
-          {/* Left Column: Headline, Trust Pill & Action Buttons without enclosing box */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right py-2 lg:pr-4 rtl:lg:pr-0 rtl:lg:pl-4">
+          {/* Left Column: Headline, Trust Pill & Action Buttons in Transparent Glass Panel */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left rtl:text-right p-6 sm:p-8 lg:p-10 rounded-3xl bg-white/60 dark:bg-das-900/60 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-soft transition-all">
             
             {/* Natural Leaf Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-50/90 dark:bg-leaf-950/80 border border-leaf-300 dark:border-leaf-700/60 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leaf-50/90 dark:bg-leaf-950/80 border border-leaf-300 dark:border-leaf-700/60 text-leaf-800 dark:text-leaf-300 text-xs font-bold uppercase tracking-wider mb-5 shadow-sm backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-leaf-500 animate-pulse" />
               <span>{isRtl ? 'مملكة البحرين • الوكيل المعتمد لمشروبات الساي كولا' : 'Kingdom of Bahrain • Licensed Alsi Cola Distributor'}</span>
             </div>
 
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-6 text-slate-900 dark:text-white">
-              <span className="block text-slate-800 dark:text-slate-200 font-extrabold text-2xl sm:text-3xl mb-1.5 drop-shadow-sm">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.12] mb-5 text-slate-900 dark:text-white">
+              <span className="block text-slate-900 dark:text-slate-100 font-extrabold text-2xl sm:text-3xl mb-1.5 drop-shadow-sm">
                 {t.heroTitlePrefix}
               </span>
               <span className="bg-gradient-to-r from-slate-950 via-leaf-800 to-leaf-600 dark:from-white dark:via-leaf-200 dark:to-leaf-400 bg-clip-text text-transparent drop-shadow-sm">
@@ -171,12 +171,12 @@ export const Hero: React.FC<HeroProps> = ({
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 max-w-2xl leading-relaxed mb-8 font-normal">
+            <p className="text-base sm:text-lg text-slate-800 dark:text-slate-100 max-w-2xl leading-relaxed mb-7 font-medium">
               {t.heroSubTitle}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-8">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-7">
               <button
                 onClick={onExploreProducts}
                 className="flex items-center justify-center gap-2.5 bg-gradient-to-r from-leaf-600 to-leaf-500 hover:from-leaf-500 hover:to-leaf-600 text-white font-extrabold px-8 py-3.5 rounded-2xl shadow-leaf transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
@@ -195,7 +195,7 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Realistic Trust Checkmarks with Nature Green Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-6 border-t border-slate-300/70 dark:border-white/10 text-xs text-slate-800 dark:text-slate-200">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full pt-5 border-t border-slate-300/60 dark:border-white/10 text-xs text-slate-800 dark:text-slate-200">
               <div className="flex items-center gap-2.5">
                 <div className="w-6 h-6 rounded-full bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 flex items-center justify-center shrink-0">
                   <CheckCircle2 className="w-4 h-4" />
@@ -227,7 +227,7 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Main Showcase Interactive Card - Transparent Glass Panel */}
-              <div className="relative rounded-3xl p-6 sm:p-7 bg-white/40 dark:bg-das-900/40 backdrop-blur-xl border border-white/50 dark:border-white/10 overflow-hidden shadow-soft transition-all">
+              <div className="relative rounded-3xl p-6 sm:p-7 bg-white/60 dark:bg-das-900/60 backdrop-blur-xl border border-white/60 dark:border-white/10 overflow-hidden shadow-soft transition-all">
                 
                 {/* Visual Header with Slide Navigation */}
                 <div className="flex items-center justify-between mb-4">
@@ -394,7 +394,7 @@ export const Hero: React.FC<HeroProps> = ({
         </div>
 
         {/* Bottom Metrics & Van Sales Live Banner with Transparent Glass Panel */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl bg-white/40 dark:bg-das-900/40 backdrop-blur-xl border border-white/50 dark:border-white/10 shadow-soft">
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-4 p-6 rounded-2xl bg-white/60 dark:bg-das-900/60 backdrop-blur-xl border border-white/60 dark:border-white/10 shadow-soft">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-leaf-100 dark:bg-leaf-950 text-leaf-700 dark:text-leaf-400 border border-leaf-300 dark:border-leaf-700/50 flex items-center justify-center shrink-0 shadow-sm">
               <Truck className="w-6 h-6" />
