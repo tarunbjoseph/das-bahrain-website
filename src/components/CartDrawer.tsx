@@ -161,11 +161,11 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     className="flex gap-3 p-3 rounded-2xl bg-slate-50 dark:bg-das-850/80 border border-slate-200 dark:border-white/5 hover:border-slate-300 dark:hover:border-white/10 transition-all"
                   >
                     {/* Item Thumbnail */}
-                    <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-das-800 shrink-0">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 dark:bg-das-800 shrink-0 flex items-center justify-center p-1">
                       <img 
                         src={item.product.image} 
                         alt={isArabic ? item.product.nameAr : item.product.name} 
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain filter drop-shadow-sm"
                       />
                     </div>
 

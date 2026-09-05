@@ -78,13 +78,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-6">
             
             {/* Image Column */}
-            <div className="sm:col-span-5 aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-das-800 border border-slate-200 dark:border-white/10 relative">
+            <div className="sm:col-span-5 aspect-square rounded-2xl overflow-hidden bg-slate-100 dark:bg-das-800 border border-slate-200 dark:border-white/10 relative flex items-center justify-center p-4">
               <img
                 src={product.image}
                 alt={isArabic ? product.nameAr : product.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain filter drop-shadow-md"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1546173159-315724a31d9b?auto=format&fit=crop&w=600&q=80';
+                  (e.target as HTMLImageElement).src = 'https://alsicola.com/wp-content/uploads/2023/12/alsi-cola-soft-drink.png';
                 }}
               />
               {product.tag && (

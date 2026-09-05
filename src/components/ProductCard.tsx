@@ -64,10 +64,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <img
           src={product.image}
           alt={isArabic ? product.nameAr : product.name}
-          className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-contain rounded-xl group-hover:scale-105 transition-transform duration-500 filter drop-shadow-md p-1.5"
           loading="lazy"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1546173159-315724a31d9b?auto=format&fit=crop&w=600&q=80';
+            (e.target as HTMLImageElement).src = 'https://alsicola.com/wp-content/uploads/2023/12/alsi-cola-soft-drink.png';
           }}
         />
 

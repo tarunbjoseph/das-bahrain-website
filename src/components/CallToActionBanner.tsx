@@ -13,7 +13,7 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({ language
   const ArrowIcon = isArabic ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative w-full overflow-hidden py-16 md:py-20 bg-slate-950 text-white">
+    <section className="relative w-full overflow-hidden py-16 md:py-24 bg-slate-50 dark:bg-[#070a0e] text-white transition-colors duration-300">
       {/* Background Image */}
       <img
         src="https://alsicolabh.tfwgsite.com/assets/cta-background-DfvjAj8P.jpg"
@@ -25,8 +25,11 @@ export const CallToActionBanner: React.FC<CallToActionBannerProps> = ({ language
       {/* Subtle Overlay Gradients */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/90" />
 
+      {/* Top Seamless Blending Gradient from AboutContact section */}
+      <div className="absolute top-0 inset-x-0 h-24 sm:h-32 bg-gradient-to-b from-slate-50 via-slate-50/60 to-transparent dark:from-[#070a0e] dark:via-[#070a0e]/60 dark:to-transparent z-10 pointer-events-none" />
+
       {/* Content Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-7">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-7">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-leaf-950/70 border border-leaf-500/40 text-leaf-300 text-xs font-bold uppercase tracking-[0.25em]">
           <ShieldCheck className="w-3.5 h-3.5" />
           <span>{isArabic ? 'الشريك الرسمي في البحرين' : 'Licensed Bahrain FMCG Distribution'}</span>

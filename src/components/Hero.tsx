@@ -261,11 +261,11 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
 
                 {/* Product Image Stage */}
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100 dark:bg-gradient-to-b dark:from-das-800 dark:to-das-900 border border-slate-200 dark:border-white/10 group">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] mb-4 bg-slate-100 dark:bg-gradient-to-b dark:from-das-800 dark:to-das-900 border border-slate-200 dark:border-white/10 group flex items-center justify-center p-2">
                   <img
                     src={currentProduct.image}
                     alt={isRtl ? currentProduct.nameAr : currentProduct.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105 filter drop-shadow-lg"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
                   

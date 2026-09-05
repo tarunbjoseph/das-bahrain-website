@@ -73,7 +73,7 @@ export const ProductGrid: React.FC<ProductGridProps> = ({
       titleAr: 'كود ريد ومشروبات الطاقة',
       descEn: 'High-velocity daily van sales demand',
       descAr: 'الأعلى طلباً ومبيعاً في البقالات',
-      image: 'https://images.unsplash.com/photo-1622543925917-763c34d1a86e?auto=format&fit=crop&w=600&q=80',
+      image: 'https://alesayibeverage.com/wp-content/uploads/2023/08/1-1024x1024.webp',
       badgeEn: 'Best Seller',
       badgeAr: 'الأكثر مبيعاً'
     },
