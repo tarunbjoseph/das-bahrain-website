@@ -11,9 +11,7 @@
 }
 
 html {
-  overflow-x: hidden;
-  max-width: 100vw;
-  width: 100%;
+  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
@@ -21,9 +19,7 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-  max-width: 100vw;
-  width: 100%;
+  overflow-x: clip;
   background-color: #f8fafc;
   color: #0f172a;
   transition: background-color 0.3s ease, color 0.3s ease;

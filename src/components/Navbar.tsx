@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 w-full">
+    <header className="sticky top-0 left-0 right-0 z-50 w-full transition-all duration-300">
       {/* Top Announcement Bar - Continuous Smooth Marquee Ticker */}
       <div className="bg-gradient-to-r from-slate-900 via-das-900 to-das-950 text-slate-200 border-b border-white/10 py-1.5 px-4 text-xs relative overflow-hidden flex items-center marquee-container shadow-sm">
         <div className="overflow-hidden whitespace-nowrap flex-1">
