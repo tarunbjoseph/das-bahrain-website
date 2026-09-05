@@ -173,15 +173,15 @@ export const Navbar: React.FC<NavbarProps> = ({
       </div>
 
       {/* Main Navbar */}
-      <nav className="glass-panel border-b border-slate-200/80 dark:border-white/10 px-4 lg:px-8 py-3 transition-all">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <nav className="glass-panel border-b border-slate-200/80 dark:border-white/10 px-3 sm:px-4 lg:px-8 py-2.5 sm:py-3 transition-all">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
           
           {/* Logo & Brand */}
           <div 
             onClick={() => handleNavClick('hero')} 
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink min-w-0"
           >
-            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-black p-0.5 border-2 border-leaf-500/80 shadow-lg shadow-leaf-900/30 group-hover:border-leaf-400 transition-all flex items-center justify-center shrink-0">
+            <div className="relative w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-black p-0.5 border-2 border-leaf-500/80 shadow-md flex items-center justify-center shrink-0">
               <img 
                 src={logoImg} 
                 alt="DAS Bahrain Logo" 
@@ -190,14 +190,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             </div>
             <div className="flex flex-col min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="font-black text-xl tracking-tight text-slate-900 dark:text-white group-hover:text-leaf-600 transition-colors">
+                <span className="font-black text-base sm:text-xl tracking-tight text-slate-900 dark:text-white group-hover:text-leaf-600 transition-colors whitespace-nowrap">
                   DAS <span className="text-leaf-600 dark:text-leaf-400">BAHRAIN</span>
                 </span>
-                <span className="text-[10px] bg-leaf-100 dark:bg-leaf-950 text-leaf-800 dark:text-leaf-300 border border-leaf-500/30 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider hidden sm:inline-block">
+                <span className="text-[10px] bg-leaf-100 dark:bg-leaf-950 text-leaf-800 dark:text-leaf-300 border border-leaf-500/30 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider hidden md:inline-block">
                   Licensed
                 </span>
               </div>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate max-w-[140px] xs:max-w-[200px] sm:max-w-none">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate hidden sm:block">
                 {language === 'ar' ? 'دار البابا سلام • موزع الساي كولا المعتمد' : 'Dar Al Baba Salam • Featuring Alsi Cola'}
               </span>
             </div>
@@ -379,22 +379,22 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
           </div>
 
-          {/* Action Controls: Theme Toggle, Language Toggle & Cart Button */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Action Controls: Theme Toggle, Language Toggle, Cart Button & Mobile Hamburger */}
+          <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
             
             {/* Search Trigger for Mobile */}
             <button 
               onClick={() => setSearchOpen(!searchOpen)}
-              className="md:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/5"
+              className="md:hidden p-1.5 sm:p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/5 shrink-0"
               aria-label="Search"
             >
-              <Search className="w-5 h-5" />
+              <Search className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button - hidden on mobile screens (< 640px) and present in mobile menu */}
             <button
               onClick={onToggleTheme}
-              className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-300 dark:border-white/15 transition-colors"
+              className="hidden sm:flex items-center justify-center w-8 h-8 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-300 dark:border-white/15 transition-colors shrink-0"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               aria-label="Toggle Light/Dark Theme"
             >
@@ -408,22 +408,22 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Language Switcher */}
             <button
               onClick={onToggleLanguage}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-300 dark:border-white/15 text-xs font-semibold text-slate-800 dark:text-white transition-colors"
+              className="flex items-center gap-1 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-300 dark:border-white/15 text-xs font-semibold text-slate-800 dark:text-white transition-colors shrink-0"
               title="Switch Language"
             >
-              <Globe className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
+              <Globe className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400 shrink-0" />
               <span>{t.languageToggle}</span>
             </button>
 
             {/* Cart Drawer Trigger */}
             <button
               onClick={onOpenCart}
-              className="relative flex items-center gap-2 bg-gradient-to-r from-leaf-600 to-leaf-500 hover:from-leaf-500 hover:to-leaf-600 text-white font-bold px-3.5 sm:px-4 py-2 rounded-full shadow-leaf transition-all hover:scale-105 active:scale-95"
+              className="relative flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-leaf-600 to-leaf-500 hover:from-leaf-500 hover:to-leaf-600 text-white font-bold px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-leaf transition-all hover:scale-105 active:scale-95 shrink-0"
             >
-              <ShoppingCart className="w-4 h-4 text-white" />
+              <ShoppingCart className="w-4 h-4 text-white shrink-0" />
               <span className="hidden sm:inline text-xs font-extrabold">{t.cart}</span>
               {cartCount > 0 && (
-                <span className="bg-white text-leaf-800 text-xs font-black px-1.5 py-0.2 rounded-full min-w-[1.25rem] text-center border border-leaf-400/40">
+                <span className="bg-white text-leaf-800 text-[10px] sm:text-xs font-black px-1.5 py-0.2 rounded-full min-w-[1.1rem] text-center border border-leaf-400/40">
                   {cartCount}
                 </span>
               )}
@@ -434,13 +434,13 @@ export const Navbar: React.FC<NavbarProps> = ({
               )}
             </button>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle - ALWAYS VISIBLE with shrink-0 */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/5"
+              className="lg:hidden p-1.5 sm:p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-white/10 shrink-0"
               aria-label="Open navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-6 h-6 text-leaf-600" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -535,7 +535,26 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               {t.contact}
             </button>
-            <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex flex-col gap-2 w-full max-w-full">
+            <div className="pt-2 border-t border-slate-200 dark:border-white/10 flex items-center justify-between px-3 py-1 text-xs">
+              <span className="text-slate-600 dark:text-slate-400 font-medium">{isRtl ? 'المظهر والوضع' : 'Theme Mode'}</span>
+              <button
+                onClick={onToggleTheme}
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-white/5 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white text-xs font-semibold"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{isRtl ? 'الوضع النهاري' : 'Light Mode'}</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-3.5 h-3.5 text-slate-700" />
+                    <span>{isRtl ? 'الوضع الليلي' : 'Dark Mode'}</span>
+                  </>
+                )}
+              </button>
+            </div>
+            <div className="pt-1 flex flex-col gap-2 w-full max-w-full">
               <a 
                 href={`https://wa.me/${COMPANY_INFO.centralSalesWhatsApp}?text=Hello%20Central%20Sales%20DAS%20Bahrain`}
                 target="_blank"
